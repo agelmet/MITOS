@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ΜΙΤΟΣ — Εταιρεία Ψυχικής Υγείας &amp; Κοινωνικών Παρεμβάσεων</title>
+<meta name="description" content="Η ΜΙΤΟΣ ΑΜΚΕ σχεδιάζει και λειτουργεί δομές ψυχικής υγείας και κοινωνικές παρεμβάσεις. Ξενώνας Εφήβων Πειραιά, Κέντρο Ημέρας «Εναργεία», εθελοντισμός, έρευνα και εκπαίδευση.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0E2F2C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ΜΙΤΟΣ — Εταιρεία Ψυχικής Υγείας &amp; Κοινωνικών Παρεμβάσεων">
+<meta property="og:description" content="Δομές ψυχικής υγείας και κοινωνικές παρεμβάσεις για ανθρώπους που, χωρίς υποστήριξη, θα έμεναν εκτός.">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Commissioner:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high">
+<style>
+:root{
+  --ink:#0E2F2C; --ink-2:#144340; --ink-3:#1C5A55;
+  --paper:#F6F3EC; --paper-2:#EDE7DC; --card:#FFFFFF;
+  --clay:#C8703F; --clay-d:#A85A2E; --moss:#8FB4A9;
+  --body:#3B4A47; --muted:#6E7E7B;
+  --line:rgba(14,47,44,.14); --line-d:rgba(255,255,255,.17);
+  --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Commissioner",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --pad:clamp(3.6rem,7vw,7rem);
+  --wrap:min(1220px,90%);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.74;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;color:var(--ink);line-height:1.12}
+h1{font-size:clamp(2.6rem,1.5rem + 4.4vw,5.2rem)}
+h2{font-size:clamp(2rem,1.4rem + 2.5vw,3.4rem)}
+h3{font-size:clamp(1.3rem,1.1rem + .75vw,1.75rem)}
+p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
+::selection{background:var(--clay);color:#fff}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px}
+.wrap{width:var(--wrap);margin-inline:auto}
+.sec{padding-block:var(--pad)}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--clay-d);margin-bottom:1.1rem}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--clay)}
+.on-dark{background:var(--ink);color:#C4D6D2}
+.on-dark h1,.on-dark h2,.on-dark h3,.on-dark h4{color:#fff}
+.on-dark .eyebrow{color:var(--moss)}
+.on-dark .eyebrow::before{background:var(--moss)}
+.lead{font-size:clamp(1.03rem,1rem + .3vw,1.19rem)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.92rem 1.7rem;border-radius:100px;font-size:.76rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease)}
+.btn-p{background:var(--clay);color:#fff}
+.btn-p:hover{background:var(--clay-d);transform:translateY(-2px)}
+.btn-o{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-o:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
+.btn-d{border-color:var(--line);color:var(--ink)}
+.btn-d:hover{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-2px)}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:70;padding-block:1.05rem;transition:background .45s var(--ease),box-shadow .45s var(--ease),padding .45s var(--ease)}
+.hdr-in{width:var(--wrap);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:1.2rem}
+.brand{display:flex;align-items:center;gap:.8rem;min-width:0}
+.brand img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff;padding:3px}
+.brand-tx{display:grid;line-height:1.15;min-width:0}
+.bn-short{display:none}
+.brand-tx b{font-family:var(--serif);font-weight:600;font-size:1.28rem;letter-spacing:.16em;color:#fff;transition:color .45s var(--ease)}
+.brand-tx span{font-size:.58rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:color .45s var(--ease)}
+.nav{display:flex;align-items:center;gap:1.8rem}
+.nav a{font-size:.74rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.87);position:relative;padding-block:.35rem;transition:color .35s var(--ease)}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--clay);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--ease)}
+.nav a:hover::after{transform:scaleX(1)}
+.hdr-right{display:flex;align-items:center;gap:.85rem}
+.lang{display:flex;align-items:center;gap:.15rem;border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:2px;transition:border-color .45s var(--ease)}
+.lang button{display:flex;align-items:center;gap:.4rem;background:none;border:0;cursor:pointer;color:rgba(255,255,255,.82);font-family:var(--sans);font-size:.65rem;font-weight:600;letter-spacing:.1em;padding:.4rem .7rem;border-radius:100px;transition:background .3s var(--ease),color .3s var(--ease)}
+.lang button[aria-pressed="true"]{background:var(--clay);color:#fff}
+.flag{display:block;width:18px;height:12px;border-radius:2px;overflow:hidden;flex:none;line-height:0;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.flag svg{display:block;width:100%;height:100%}
+.burger{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.3);background:none;border-radius:100px;cursor:pointer;place-items:center;transition:border-color .45s var(--ease)}
+.burger span{display:block;width:18px;height:1.5px;background:#fff;margin:3px 0;transition:background .45s var(--ease)}
+.hdr.stuck{background:rgba(246,243,236,.95);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding-block:.6rem}
+.hdr.stuck .brand-tx b{color:var(--ink)}
+.hdr.stuck .brand-tx span{color:var(--muted)}
+.hdr.stuck .nav a{color:var(--ink-2)}
+.hdr.stuck .lang{border-color:var(--line)}
+.hdr.stuck .lang button{color:var(--ink-2)}
+.hdr.stuck .lang button[aria-pressed="true"]{color:#fff}
+.hdr.stuck .burger{border-color:var(--line)}
+.hdr.stuck .burger span{background:var(--ink)}
+.mnav{position:fixed;inset:0;z-index:90;background:var(--ink);display:grid;grid-template-rows:auto 1fr auto;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+.mnav.open{opacity:1;visibility:visible}
+.mnav-top{display:flex;justify-content:flex-end;padding:1.1rem 5%}
+.mclose{width:48px;height:48px;border:1px solid var(--line-d);background:none;border-radius:100px;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.mnav nav{display:grid;align-content:center;gap:.2rem;padding:0 8%}
+.mnav nav a{font-family:var(--serif);font-size:clamp(1.7rem,7vw,2.4rem);color:#fff;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.09)}
+.mnav-foot{padding:1.6rem 8% 2.4rem;display:grid;gap:.4rem;color:var(--moss);font-size:.9rem}
+.mnav-foot a{color:#fff;font-weight:500}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--ink)}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;will-change:transform;transform:scale(1.1);animation:heroIn 3s var(--ease) forwards}
+@keyframes heroIn{to{transform:scale(1)}}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(6,26,24,.92) 0%,rgba(6,26,24,.7) 42%,rgba(6,26,24,.34) 72%,rgba(6,26,24,.6) 100%)}
+.hero-in{position:relative;z-index:2;width:var(--wrap);margin-inline:auto;padding-block:8rem 5rem;max-width:none}
+.hero .tag{display:inline-block;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1rem + .55vw,1.5rem);color:var(--moss);margin-bottom:1rem}
+.hero h1{color:#fff;max-width:15ch;text-wrap:balance;text-shadow:0 2px 44px rgba(0,0,0,.4)}
+.hero .lead{margin-top:1.6rem;max-width:54ch;color:rgba(226,238,235,.92)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.2rem}
+.scroll-cue{position:absolute;left:50%;bottom:1.5rem;transform:translateX(-50%);z-index:3;width:1px;height:52px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.5));overflow:hidden}
+.scroll-cue::after{content:"";position:absolute;inset:0;background:#fff;animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+
+/* facts */
+.facts{background:var(--paper-2)}
+.facts-in{width:var(--wrap);margin-inline:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line)}
+.fact{background:var(--paper-2);padding:clamp(1.6rem,3vw,2.4rem) clamp(1rem,2vw,1.5rem);display:grid;gap:.35rem;align-content:start}
+.fact b{font-family:var(--serif);font-size:clamp(2rem,1.5rem + 1.6vw,3rem);color:var(--ink);font-weight:500;line-height:1}
+.fact span{font-size:.79rem;color:var(--muted);line-height:1.5}
+
+/* intro */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(2.4rem,5vw,5rem);align-items:start}
+.quote{font-family:var(--serif);font-size:clamp(1.5rem,1.2rem + 1.5vw,2.35rem);line-height:1.3;color:var(--ink);border-left:2px solid var(--clay);padding-left:clamp(1.1rem,2.4vw,2rem)}
+.quote small{display:block;margin-top:1.1rem;font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* principles */
+.prin{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line-d);border:1px solid var(--line-d);margin-top:3rem}
+.prin article{background:var(--ink);padding:clamp(1.8rem,3vw,2.6rem);display:grid;gap:.8rem;align-content:start;transition:background .4s var(--ease)}
+.prin article:hover{background:var(--ink-2)}
+.prin .no{font-family:var(--serif);font-size:1.1rem;color:var(--moss)}
+.prin p{font-size:.95rem;color:#BDD0CC;margin:0}
+
+/* structures */
+.stru{display:grid;gap:clamp(2rem,4vw,3.4rem);margin-top:3rem}
+.stru-row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.8rem,4vw,3.4rem);align-items:center;background:var(--card);border:1px solid var(--line)}
+.stru-row.rev>figure{order:2}
+.stru-row figure{margin:0;height:100%;min-height:clamp(280px,32vw,430px);position:relative;overflow:hidden}
+.stru-row figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stru-tx{padding:clamp(1.8rem,3.4vw,3.2rem)}
+.badge{display:inline-block;font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay-d);border:1px solid var(--clay);border-radius:100px;padding:.32rem .85rem;margin-bottom:1rem}
+.ticks{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:.7rem}
+.ticks li{position:relative;padding-left:1.6rem;font-size:.95rem}
+.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-left:1px solid var(--clay);border-bottom:1px solid var(--clay);transform:rotate(-45deg)}
+.on-dark .ticks li::before{border-color:var(--moss)}
+.meta{display:grid;gap:0;margin-top:1.6rem;border-top:1px solid var(--line)}
+.meta .row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:.9rem;padding-block:.7rem;border-bottom:1px solid var(--line);font-size:.93rem}
+.meta .row b{font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:.3em}
+
+/* aims */
+.aims{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(2rem,5vw,4.4rem);margin-top:2.8rem;counter-reset:a}
+.aim{display:grid;grid-template-columns:52px minmax(0,1fr);gap:1rem;padding-block:1.15rem;border-bottom:1px solid var(--line-d);align-items:start}
+.aim::before{counter-increment:a;content:counter(a,decimal-leading-zero);font-family:var(--serif);font-size:1.05rem;color:var(--moss);padding-top:.2em}
+.aim p{font-size:.95rem;color:#C4D6D2;margin:0}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:3rem}
+.gal a{display:block;position:relative;overflow:hidden;background:var(--paper-2)}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .8s var(--ease)}
+.gal a:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.2rem .9rem .8rem;color:#fff;font-size:.83rem;background:linear-gradient(180deg,transparent,rgba(8,26,24,.85))}
+
+/* board */
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3rem}
+.board article{background:var(--card);padding:clamp(1.8rem,3vw,2.6rem);display:grid;gap:.6rem;align-content:start}
+.mono{width:64px;height:64px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:1.4rem;letter-spacing:.02em;margin-bottom:.6rem}
+.board h3{font-size:1.28rem}
+.board span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-d)}
+
+/* cta band */
+.cta{text-align:center;padding-block:clamp(3.4rem,7vw,6rem)}
+.cta h2{max-width:20ch;margin-inline:auto}
+.cta p{max-width:60ch;margin:1.3rem auto 0;color:#BDD0CC}
+.cta .hero-cta{justify-content:center}
+
+/* contact */
+.ct{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2.2rem,5vw,4.4rem);align-items:start}
+.field{display:grid;gap:.4rem;margin-bottom:1rem}
+.field label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.field input,.field textarea{font-family:var(--sans);font-size:.97rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.82rem .95rem;width:100%;transition:border-color .3s var(--ease)}
+.field textarea{min-height:132px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--clay);outline:none}
+.hp{position:absolute;left:-9999px}
+.ct-list{display:grid;border-top:1px solid var(--line)}
+.ct-list .row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:1rem;padding-block:1.05rem;border-bottom:1px solid var(--line);font-size:.97rem}
+.ct-list .row b{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:.25em}
+.ct-list a:hover{color:var(--clay-d)}
+.note{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+
+/* footer */
+.ft{background:var(--ink);color:#9EB6B2;padding-block:clamp(3rem,5vw,4.4rem) 0}
+.ft-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:clamp(1.8rem,4vw,3rem);padding-bottom:2.8rem;border-bottom:1px solid var(--line-d)}
+.ft h4{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;font-family:var(--sans);font-weight:600;margin-bottom:1.1rem}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem;font-size:.92rem}
+.ft a:hover{color:#fff}
+.ft-brand{display:flex;align-items:center;gap:.8rem;margin-bottom:1.1rem}
+.ft-brand img{width:48px;height:48px;object-fit:contain;border-radius:50%;background:#fff;padding:3px}
+.ft-brand b{font-family:var(--serif);font-size:1.3rem;color:#fff;font-weight:600;letter-spacing:.16em}
+.ft-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-block:1.5rem;font-size:.82rem}
+.ft-bot a{color:#fff}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:120;background:rgba(6,22,20,.96);display:grid;place-items:center;padding:clamp(1rem,4vw,3rem);opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s}
+.lb.open{opacity:1;visibility:visible}
+.lb img{max-width:100%;max-height:86vh;object-fit:contain}
+.lb-x{position:absolute;top:1rem;right:1rem;width:48px;height:48px;border:1px solid var(--line-d);background:none;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:100px}
+.lb-cap{position:absolute;left:0;right:0;bottom:1.1rem;text-align:center;color:#B4C9C5;font-size:.85rem;padding-inline:1rem}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.09s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.27s}.rv.d4{transition-delay:.36s}
+
+@media(max-width:1080px){
+  .nav{display:none}.burger{display:grid}
+  .intro,.ct{grid-template-columns:1fr}
+  .stru-row{grid-template-columns:1fr}
+  .stru-row.rev>figure{order:0}
+  .board{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .aims{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .facts-in{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .prin{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-in{padding-block:7rem 4rem}
+  .hero-cta .btn{width:100%}
+  .ft-top{grid-template-columns:1fr}
+  .meta .row,.ct-list .row{grid-template-columns:1fr;gap:.2rem}
+}
+/* mobile header: keep the lockup, the toggle and the burger from colliding */
+@media(max-width:900px){
+  .brand-tx span{display:none}
+}
+@media(max-width:640px){
+  .bn-long{display:none}
+  .bn-short{display:block}
+}
+@media(max-width:520px){
+  .lang button{font-size:0;gap:0;padding:.4rem .5rem}
+  .lang button .flag{width:22px;height:15px}
+  .brand img{width:40px;height:40px}
+  .brand{gap:.55rem}
+  .hdr-in{gap:.6rem}
+  .brand-tx b{font-size:.86rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .hero-media img{animation:none;transform:none}
+  .scroll-cue::after{animation:none}
+  .gal a:hover img{transform:none}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#top" aria-label="Αρχική">
+      <img src="assets/logo.jpg" width="46" height="46" alt="Λογότυπο ΜΙΤΟΣ">
+      <span class="brand-tx">
+        <b class="bn-long" data-i18n="brand">ΜΙΤΟΣ</b>
+        <b class="bn-short" data-i18n="brandShort">ΜΙΤΟΣ</b>
+        <span data-i18n="brandSub">Εταιρεία Ψυχικής Υγείας &amp; Κοινωνικών Παρεμβάσεων</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Κύρια πλοήγηση">
+      <a href="#etaireia" data-i18n="navAbout">Η Εταιρεία</a>
+      <a href="#filosofia" data-i18n="navPhil">Φιλοσοφία</a>
+      <a href="#domes" data-i18n="navStru">Δομές</a>
+      <a href="#skopoi" data-i18n="navAims">Σκοποί</a>
+      <a href="#draseis" data-i18n="navActs">Δράσεις</a>
+      <a href="#ethelontes" data-i18n="navVol">Εθελοντές</a>
+    </nav>
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Γλώσσα">
+        <button type="button" data-lang="el" aria-pressed="true" aria-label="Ελληνικά">
+          <span class="flag" aria-hidden="true"><svg viewBox="0 0 27 18" preserveAspectRatio="xMidYMid slice"><rect width="27" height="18" fill="#0d5eaf"/><g fill="#fff"><rect y="2" width="27" height="2"/><rect y="6" width="27" height="2"/><rect y="10" width="27" height="2"/><rect y="14" width="27" height="2"/></g><rect width="10" height="10" fill="#0d5eaf"/><g fill="#fff"><rect x="4" width="2" height="10"/><rect y="4" width="10" height="2"/></g></svg></span>ΕΛ
+        </button>
+        <button type="button" data-lang="en" aria-pressed="false" aria-label="English">
+          <span class="flag" aria-hidden="true"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="ukc"><path d="M0 0h60v30H0z"/></clipPath><g clip-path="url(#ukc)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg></span>EN
+        </button>
+      </div>
+      <button class="burger" id="burger" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Μενού">
+  <div class="mnav-top"><button class="mclose" id="mclose" aria-label="Κλείσιμο">&#10005;</button></div>
+  <nav>
+    <a href="#etaireia" data-i18n="navAbout">Η Εταιρεία</a>
+    <a href="#filosofia" data-i18n="navPhil">Φιλοσοφία</a>
+    <a href="#domes" data-i18n="navStru">Δομές</a>
+    <a href="#skopoi" data-i18n="navAims">Σκοποί</a>
+    <a href="#draseis" data-i18n="navActs">Δράσεις</a>
+    <a href="#ethelontes" data-i18n="navVol">Εθελοντές</a>
+    <a href="#epikoinonia" data-i18n="navContact">Επικοινωνία</a>
+  </nav>
+  <div class="mnav-foot">
+    <a href="tel:+302170008040">217 000 8040</a>
+    <a href="tel:+302104826111">210 482 6111</a>
+    <a href="mailto:info@mitosinstitute.gr">info@mitosinstitute.gr</a>
+  </div>
+</div>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-media" aria-hidden="true">
+    <img src="assets/hero.jpg" width="2560" height="1707" fetchpriority="high" decoding="async" alt="">
+  </div>
+  <div class="hero-in">
+    <span class="tag rv in" data-i18n="heroTag">Αστική μη κερδοσκοπική εταιρεία</span>
+    <h1 id="h1" class="rv in d1" data-i18n="heroTitle">Ένας μίτος για να βρεθεί ο δρόμος πίσω.</h1>
+    <p class="lead rv in d2" data-i18n="heroLead">Η ΜΙΤΟΣ σχεδιάζει και λειτουργεί δομές ψυχικής υγείας και κοινωνικές παρεμβάσεις για ανθρώπους που, χωρίς υποστήριξη, θα έμεναν απ' έξω. Από το 2013, με επιστημονική ομάδα και ανοιχτή πόρτα στην κοινότητα.</p>
+    <div class="hero-cta rv in d3">
+      <a class="btn btn-p" href="#domes" data-i18n="ctaStru">Οι δομές μας</a>
+      <a class="btn btn-o" href="#ethelontes" data-i18n="ctaVol">Γίνε εθελοντής</a>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</section>
+
+<section class="facts" aria-label="Με μια ματιά">
+  <div class="facts-in">
+    <div class="fact rv"><b>2013</b><span data-i18n="f1">Έτος ίδρυσης της εταιρείας</span></div>
+    <div class="fact rv d1"><b>13–18</b><span data-i18n="f2">Ηλικίες που φιλοξενεί ο Ξενώνας Εφήβων Πειραιά</span></div>
+    <div class="fact rv d2"><b>10–12</b><span data-i18n="f3">Θέσεις φιλοξενίας στη δομή</span></div>
+    <div class="fact rv d3"><b>24/7</b><span data-i18n="f4">Φροντίδα από πολυκλαδική θεραπευτική ομάδα</span></div>
+  </div>
+</section>
+
+<section class="sec" id="etaireia">
+  <div class="wrap intro">
+    <div class="rv">
+      <span class="eyebrow" data-i18n="abEyebrow">Η Εταιρεία</span>
+      <h2 data-i18n="abTitle">Ψυχική υγεία και κοινωνική ένταξη, στην ίδια πρόταση.</h2>
+      <blockquote class="quote" style="margin:2rem 0 0" data-i18n="abQuote">«Δημιουργήθηκε με σκοπό την προαγωγή της σωματικής και ψυχικής υγείας και τη βελτιστοποίηση της κοινωνικής ένταξης.»<small>Από το καταστατικό της ΜΙΤΟΣ ΑΜΚΕ</small></blockquote>
+    </div>
+    <div class="rv d1">
+      <p class="lead" data-i18n="abP1">Η ΜΙΤΟΣ είναι αστική μη κερδοσκοπική εταιρεία ψυχικής υγείας και κοινωνικών παρεμβάσεων. Παρέχει ιατρική, ψυχολογική, ψυχιατρική και κοινωνική φροντίδα, με έμφαση σε πληθυσμούς που μένουν συστηματικά εκτός: ηλικιωμένους, ανέργους, αστέγους, μετανάστες και πρόσφυγες, ασθενείς με χρόνια νοσήματα, άτομα με αναπηρία, κοινωνικά αποκλεισμένες ομάδες, Ρομά και θύματα κακοποίησης.</p>
+      <p data-i18n="abP2">Δίπλα στην κλινική δουλειά τρέχει η ψυχοεκπαίδευση και η ψυχοθεραπεία — σε άτομα, οικογένειες, κοινωνικές και επαγγελματικές ομάδες. Στόχος δεν είναι μόνο η θεραπεία της διαταραχής, αλλά και η πρόληψή της και η άνοδος της ποιότητας ζωής.</p>
+      <p data-i18n="abP3">Στην εταιρεία συμμετέχουν ψυχίατροι, παιδοψυχίατροι, ψυχολόγοι, νοσηλευτές ψυχικής υγείας, κοινωνικοί λειτουργοί, εργοθεραπευτές, ψυχοθεραπευτές και εκπαιδευτικοί — μια πολυκλαδική ομάδα που δουλεύει με κοινό σχέδιο και κοινή γλώσσα.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-dark" id="filosofia">
+  <div class="wrap">
+    <div style="max-width:60ch">
+      <span class="eyebrow rv" data-i18n="phEyebrow">Η φιλοσοφία μας</span>
+      <h2 class="rv d1" data-i18n="phTitle">Τέσσερις αρχές που κρατάνε τη δουλειά όρθια.</h2>
+    </div>
+    <div class="prin">
+      <article class="rv"><span class="no">01</span><h3 data-i18n="p1t">Θεραπεία και πρόληψη</h3><p data-i18n="p1d">Συμβολή στην αποτελεσματικότερη και πληρέστερη θεραπεία των ψυχικών διαταραχών — και, εξίσου σοβαρά, στην πρόληψή τους πριν εγκατασταθούν.</p></article>
+      <article class="rv d1"><span class="no">02</span><h3 data-i18n="p2t">Ποιότητα ζωής</h3><p data-i18n="p2d">Προαγωγή της ψυχικής υγείας, της ψυχοεκπαίδευσης και της ψυχοθεραπείας σε άτομα, οικογένειες, κοινωνικές και επαγγελματικές ομάδες και ευρύτερα συστήματα.</p></article>
+      <article class="rv d2"><span class="no">03</span><h3 data-i18n="p3t">Κοινωνική παρέμβαση</h3><p data-i18n="p3d">Ιατρική, ψυχολογική, ψυχιατρική και κοινωνική φροντίδα σε ευπαθείς ομάδες — εκεί όπου η ανάγκη είναι μεγαλύτερη και η πρόσβαση μικρότερη.</p></article>
+      <article class="rv d3"><span class="no">04</span><h3 data-i18n="p4t">Επιστημονικός διάλογος</h3><p data-i18n="p4d">Ένας χώρος όπου ψυχίατροι, ψυχολόγοι, νοσηλευτές και κοινωνικοί λειτουργοί ανταλλάσσουν απόψεις, εκπαιδεύονται και ελέγχουν την πρακτική τους.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="domes">
+  <div class="wrap">
+    <div style="max-width:62ch">
+      <span class="eyebrow rv" data-i18n="stEyebrow">Δομές ψυχικής υγείας</span>
+      <h2 class="rv d1" data-i18n="stTitle">Εκεί όπου η φροντίδα γίνεται καθημερινότητα.</h2>
+      <p class="lead rv d2" style="margin-top:1.3rem" data-i18n="stLead">Οι δομές μας δεν είναι κλινικές. Είναι χώροι ζωής, ανοιχτοί στην κοινωνία, όπου η θεραπευτική δουλειά γίνεται μέσα από τη ρουτίνα, το σχολείο, το παιχνίδι και τη σχέση.</p>
+    </div>
+    <div class="stru">
+      <article class="stru-row rv">
+        <figure><img src="assets/xenonas.jpg" width="2048" height="1536" loading="lazy" alt="Δραστηριότητα δημιουργικού εργαστηρίου στον Ξενώνα Εφήβων Πειραιά" data-lb data-cap="Ξενώνας Εφήβων Πειραιά — δημιουργικό εργαστήριο"></figure>
+        <div class="stru-tx">
+          <span class="badge" data-i18n="stB1">Σε λειτουργία από τον Σεπτέμβριο 2023</span>
+          <h3 data-i18n="st1t">Ξενώνας Εφήβων Πειραιά</h3>
+          <p style="margin-top:.9rem" data-i18n="st1d">Μονάδα ψυχικής υγείας που λειτουργεί ως ενδιάμεση δομή στη διαδικασία μετάβασης στην κοινότητα. Φιλοξενεί αγόρια 13 έως 18 ετών με σοβαρά ψυχοκοινωνικά προβλήματα ή ψυχικές διαταραχές, με βαριά διαταραγμένο οικογενειακό περιβάλλον ή με παραβατική συμπεριφορά και αυξημένο κίνδυνο για αυτήν.</p>
+          <p data-i18n="st1d2">Λειτουργεί σαν οικογενειακό περιβάλλον, ανοιχτό στην κοινωνία, με υψηλού βαθμού 24ωρη φροντίδα. Δεν αποτελεί σε καμία περίπτωση κλινική ή νοσοκομείο και δεν παρέχεται νοσηλεία.</p>
+          <ul class="ticks">
+            <li data-i18n="st1l1">Ατομική ψυχολογική συμβουλευτική και ψυχιατρική παρακολούθηση</li>
+            <li data-i18n="st1l2">Ομαδικά προγράμματα κοινωνικοποίησης και μαθησιακή υποστήριξη</li>
+            <li data-i18n="st1l3">Εκπαίδευση σε δεξιότητες αυτόνομης διαβίωσης και κοινωνικές δεξιότητες</li>
+            <li data-i18n="st1l4">Επαγγελματικός προσανατολισμός και σύνδεση με την αγορά εργασίας</li>
+            <li data-i18n="st1l5">Δημιουργική απασχόληση και εργοθεραπεία</li>
+            <li data-i18n="st1l6">Πρόληψη χρήσης ουσιών και προγράμματα διαχείρισης συναισθήματος</li>
+            <li data-i18n="st1l7">Υποστήριξη του οικογενειακού περιβάλλοντος και συνεργασία με το σχολείο</li>
+          </ul>
+          <div class="meta">
+            <div class="row"><b data-i18n="lblAddr">Διεύθυνση</b><span data-i18n="st1addr">Ερμουπόλεως 44, Πειραιάς</span></div>
+            <div class="row"><b data-i18n="lblTeam">Ομάδα</b><span data-i18n="st1team">Ψυχολόγοι, παιδοψυχίατροι, νοσηλευτές, εκπαιδευτικοί και φροντιστές κοινωνικής μέριμνας</span></div>
+            <div class="row"><b data-i18n="lblFund">Χρηματοδότηση</b><span data-i18n="st1fund">Ταμείο Ανάκαμψης και Ανθεκτικότητας, υπό την εποπτεία του Υπουργείου Υγείας — πρόγραμμα «Δημιουργία νέων Στεγαστικών Μονάδων Ψυχικής Υγείας»</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="stru-row rev rv">
+        <figure><img src="assets/enargeia.jpg" width="2560" height="1707" loading="lazy" alt="Εκπαιδευτικό υλικό και βιβλία σε χώρο της ΜΙΤΟΣ" data-lb data-cap="Κέντρο Ημέρας Ολικής Φροντίδας «Εναργεία»"></figure>
+        <div class="stru-tx">
+          <span class="badge" data-i18n="stB2">Κέντρο Ημέρας</span>
+          <h3 data-i18n="st2t">Κέντρο Ημέρας Ολικής Φροντίδας «Εναργεία»</h3>
+          <p style="margin-top:.9rem" data-i18n="st2d">Η δεύτερη δομή της ΜΙΤΟΣ, σχεδιασμένη για ολοκληρωμένη φροντίδα σε καθημερινή βάση, χωρίς διανυκτέρευση. Απευθύνεται σε ανθρώπους που χρειάζονται συστηματική ψυχιατρική και ψυχοκοινωνική υποστήριξη, παραμένοντας ταυτόχρονα στο σπίτι και στο περιβάλλον τους.</p>
+          <ul class="ticks">
+            <li data-i18n="st2l1">Ψυχιατρική παρακολούθηση και ατομική ψυχοθεραπεία</li>
+            <li data-i18n="st2l2">Ομάδες ψυχοεκπαίδευσης για τους ίδιους και τις οικογένειές τους</li>
+            <li data-i18n="st2l3">Δημιουργική απασχόληση, εργοθεραπεία και κοινωνικές δεξιότητες</li>
+            <li data-i18n="st2l4">Σύνδεση με υπηρεσίες υγείας, πρόνοιας και απασχόλησης</li>
+          </ul>
+          <div class="meta">
+            <div class="row"><b data-i18n="lblInfo">Πληροφορίες</b><span><a href="tel:+302170008040">217 000 8040</a> · <a href="mailto:info@mitosinstitute.gr">info@mitosinstitute.gr</a></span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-dark" id="skopoi">
+  <div class="wrap">
+    <div style="max-width:62ch">
+      <span class="eyebrow rv" data-i18n="aiEyebrow">Οι σκοποί μας</span>
+      <h2 class="rv d1" data-i18n="aiTitle">Δεκατέσσερις σκοποί, γραμμένοι στο καταστατικό.</h2>
+    </div>
+    <div class="aims">
+      <div class="aim rv"><p data-i18n="a1">Ψυχοκοινωνική παρέμβαση με συγκεκριμένες στρατηγικές και τεχνικές, σε άμεσο, μεσοπρόθεσμο και μακροπρόθεσμο χρόνο, σε ανθρωπιστικές κρίσεις και φυσικές καταστροφές.</p></div>
+      <div class="aim rv"><p data-i18n="a2">Μελέτη και προώθηση λύσεων για τα προβλήματα που αντιμετωπίζουν περιθωριοποιημένες κοινωνικές ομάδες, ατομικά και συλλογικά.</p></div>
+      <div class="aim rv"><p data-i18n="a3">Συμμετοχή σε προγράμματα για τη σχέση της ενδομήτριας ζωής με την ψυχική υγεία του ενήλικα, καθώς και για την επίδραση της ψυχικής υγείας των γονέων κατά την κύηση.</p></div>
+      <div class="aim rv"><p data-i18n="a4">Καλλιέργεια της ερευνητικής δραστηριότητας στον χώρο της ψυχικής υγείας.</p></div>
+      <div class="aim rv"><p data-i18n="a5">Συνεχιζόμενη εκπαίδευση επαγγελματιών ψυχικής υγείας και όσων χρειάζονται ψυχολογική γνώση για τη δουλειά τους.</p></div>
+      <div class="aim rv"><p data-i18n="a6">Ευαισθητοποίηση μαθητών και του ευρύτερου κοινού σε θέματα επικοινωνίας, ψυχικής υγείας και ποιότητας ζωής.</p></div>
+      <div class="aim rv"><p data-i18n="a7">Ψυχοεκπαιδευτικές παρεμβάσεις σε εργαζομένους δήμων και επιχειρήσεων, σε εκπαιδευτικούς, μαθητές και μέλη της κοινότητας.</p></div>
+      <div class="aim rv"><p data-i18n="a8">Ίδρυση και λειτουργία μονάδων υγείας και ψυχικής υγείας, ψυχιατρικών ιατρείων και ψυχοθεραπευτικών παρεμβάσεων.</p></div>
+      <div class="aim rv"><p data-i18n="a9">Συμμετοχή στον διάλογο για τη βιοηθική, μέσα στο πλαίσιο των εξελίξεων της βιοτεχνολογίας.</p></div>
+      <div class="aim rv"><p data-i18n="a10">Δράσεις που αναδεικνύουν τη σχέση της ψυχικής υγείας με την πολιτιστική κληρονομιά.</p></div>
+      <div class="aim rv"><p data-i18n="a11">Αντιμετώπιση των ψυχικών εξαρτήσεων από ψυχοδραστικές ουσίες.</p></div>
+      <div class="aim rv"><p data-i18n="a12">Μελέτη των ψυχοκοινωνικών συνεπειών της τεχνολογικής και ψηφιακής εξέλιξης.</p></div>
+      <div class="aim rv"><p data-i18n="a13">Ερευνητικά και εκπαιδευτικά προγράμματα σε συνεργασία με επιστημονικούς, κοινωνικούς και διεθνείς φορείς.</p></div>
+      <div class="aim rv"><p data-i18n="a14">Ανάπτυξη και ενίσχυση του εθελοντισμού και των τοπικών κοινοτήτων.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="draseis">
+  <div class="wrap">
+    <div style="max-width:62ch">
+      <span class="eyebrow rv" data-i18n="acEyebrow">Δράσεις</span>
+      <h2 class="rv d1" data-i18n="acTitle">Η ζωή έξω από τη δομή μετράει το ίδιο.</h2>
+      <p class="lead rv d2" style="margin-top:1.3rem" data-i18n="acLead">Εκδρομές, αθλητισμός, εργαστήρια, γιορτές, εκπαιδεύσεις πρώτων βοηθειών και επισκέψεις σε πολιτιστικούς χώρους: κάθε δράση είναι μέρος του θεραπευτικού σχεδίου, όχι διάλειμμα από αυτό.</p>
+    </div>
+    <div class="gal">
+      <a href="#" data-lb-a class="rv"><figure style="margin:0"><img src="assets/act-1.jpg" loading="lazy" alt="Καλοκαιρινή εκδρομή σε πάρκο νερού" data-lb data-cap="Καλοκαιρινή εκδρομή"><figcaption data-i18n="g1">Καλοκαιρινές εξορμήσεις</figcaption></figure></a>
+      <a href="#" data-lb-a class="rv d1"><figure style="margin:0"><img src="assets/act-2.jpg" loading="lazy" alt="Γήπεδο padel σε αθλητική δράση" data-lb data-cap="Αθλητικές δράσεις"><figcaption data-i18n="g2">Αθλητισμός</figcaption></figure></a>
+      <a href="#" data-lb-a class="rv d2"><figure style="margin:0"><img src="assets/act-3.jpg" loading="lazy" alt="Επίσκεψη σε πολιτιστικό χώρο" data-lb data-cap="Πολιτιστικές επισκέψεις"><figcaption data-i18n="g3">Πολιτιστικές επισκέψεις</figcaption></figure></a>
+      <a href="#" data-lb-a class="rv"><figure style="margin:0"><img src="assets/act-4.jpg" loading="lazy" alt="Χειροποίητες πασχαλινές λαμπάδες" data-lb data-cap="Πάσχα στη δομή"><figcaption data-i18n="g4">Γιορτές</figcaption></figure></a>
+      <a href="#" data-lb-a class="rv d1"><figure style="margin:0"><img src="assets/act-5.jpg" loading="lazy" alt="Δημιουργικό εργαστήριο με χειροτεχνίες" data-lb data-cap="Δημιουργικό εργαστήριο"><figcaption data-i18n="g5">Δημιουργικά εργαστήρια</figcaption></figure></a>
+      <a href="#" data-lb-a class="rv d2"><figure style="margin:0"><img src="assets/act-6.jpg" loading="lazy" alt="Εκπαίδευση στην καρδιοαναπνευστική αναζωογόνηση" data-lb data-cap="Εκπαίδευση πρώτων βοηθειών"><figcaption data-i18n="g6">Πρώτες βοήθειες</figcaption></figure></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ds" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div style="max-width:60ch">
+      <span class="eyebrow rv" data-i18n="bdEyebrow">Διοικητικό Συμβούλιο</span>
+      <h2 class="rv d1" data-i18n="bdTitle">Ποιοι υπογράφουν τις αποφάσεις.</h2>
+    </div>
+    <div class="board">
+      <article class="rv"><span class="mono" aria-hidden="true">ΓΚ</span><h3 data-i18n="b1n">Γεώργιος Καραμπουτάκης</h3><span data-i18n="b1r">Πρόεδρος</span><p style="font-size:.93rem;margin-top:.5rem" data-i18n="b1d">Ψυχίατρος, MD, MSc, PhD. Πρόεδρος και της Ελληνοαμερικανικής Ψυχιατρικής Εταιρείας.</p></article>
+      <article class="rv d1"><span class="mono" aria-hidden="true">ΓΠ</span><h3 data-i18n="b2n">Γεώργιος Παπαδήμας</h3><span data-i18n="b2r">Διευθύνων Σύμβουλος</span><p style="font-size:.93rem;margin-top:.5rem" data-i18n="b2d">Συντονισμός της λειτουργίας των δομών και της υλοποίησης των προγραμμάτων.</p></article>
+      <article class="rv d2"><span class="mono" aria-hidden="true">ΝΧ</span><h3 data-i18n="b3n">Νίκος Χαλαράκης</h3><span data-i18n="b3r">Γενικός Γραμματέας</span><p style="font-size:.93rem;margin-top:.5rem" data-i18n="b3d">Γραμματειακή και διοικητική υποστήριξη του Διοικητικού Συμβουλίου.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="on-dark cta" id="ethelontes">
+  <div class="wrap">
+    <span class="eyebrow rv" data-i18n="voEyebrow">Εθελοντισμός</span>
+    <h2 class="rv d1" data-i18n="voTitle">Ο εθελοντισμός είναι προσφορά χωρίς υλική ανταμοιβή — και έχει τεράστια αξία.</h2>
+    <p class="rv d2" data-i18n="voLead">Αν θέλετε να προσφέρετε σε εφήβους που το έχουν ανάγκη, σέβεστε τη διαφορετικότητα και μπορείτε να δουλέψετε μέσα σε ομάδα, υπάρχει θέση για εσάς. Οι εθελοντές μας βοηθούν να χτιστεί ένα ασφαλές περιβάλλον, ενισχύουν δεξιότητες και παίρνουν πίσω εμπειρία και γνώση.</p>
+    <div class="hero-cta rv d3">
+      <a class="btn btn-p" href="mailto:info@mitosinstitute.gr?subject=Δήλωση%20εθελοντή" data-i18n="voCta">Δηλώστε συμμετοχή</a>
+      <a class="btn btn-o" href="#epikoinonia" data-i18n="voCta2">Ρωτήστε μας πρώτα</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="epikoinonia">
+  <div class="wrap ct">
+    <div class="rv">
+      <span class="eyebrow" data-i18n="ctEyebrow">Επικοινωνία</span>
+      <h2 data-i18n="ctTitle">Για κάθε πληροφορία ή ερώτηση.</h2>
+      <p class="lead" style="margin-top:1.3rem" data-i18n="ctLead">Γράψτε μας ή τηλεφωνήστε — για παραπομπή, για συνεργασία, για εθελοντισμό ή για δωρεά.</p>
+      <div class="ct-list" style="margin-top:2rem">
+        <div class="row"><b data-i18n="lblOffice">Γραφεία</b><span data-i18n="ctAddr">Δημητρίου Σούτσου 13, Αθήνα 115 21</span></div>
+        <div class="row"><b data-i18n="lblStru">Ξενώνας</b><span data-i18n="st1addr">Ερμουπόλεως 44, Πειραιάς</span></div>
+        <div class="row"><b data-i18n="lblPhone">Τηλέφωνα</b><span><a href="tel:+302170008040">217 000 8040</a><br><a href="tel:+302104826111">210 482 6111</a><br><a href="tel:+306970301443">697 030 1443</a></span></div>
+        <div class="row"><b>Email</b><span><a href="mailto:info@mitosinstitute.gr">info@mitosinstitute.gr</a></span></div>
+        <div class="row"><b data-i18n="lblSocial">Κοινωνικά</b><span><a href="https://www.facebook.com/mitosinstitute" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.linkedin.com/company/mitos-civil-society-for-mental-health-social-interventions/" target="_blank" rel="noopener">LinkedIn</a></span></div>
+      </div>
+    </div>
+    <form class="rv d1" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="hp"><label>Μην συμπληρώσετε: <input name="bot-field"></label></p>
+      <div class="field"><label for="n" data-i18n="fName">Ονοματεπώνυμο</label><input id="n" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="e" data-i18n="fEmail">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="t" data-i18n="fPhone">Τηλέφωνο</label><input id="t" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="m" data-i18n="fMsg">Το μήνυμά σας</label><textarea id="m" name="message" required></textarea></div>
+      <button class="btn btn-p" type="submit" data-i18n="fSend">Αποστολή</button>
+      <p class="note" data-i18n="fNote">Τα στοιχεία σας χρησιμοποιούνται αποκλειστικά για να απαντηθεί το αίτημά σας.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <a class="ft-brand" href="#top">
+          <img src="assets/logo.jpg" width="48" height="48" alt="Λογότυπο ΜΙΤΟΣ">
+          <b data-i18n="brand">ΜΙΤΟΣ</b>
+        </a>
+        <p style="font-size:.92rem;max-width:40ch" data-i18n="ftAbout">Αστική μη κερδοσκοπική εταιρεία ψυχικής υγείας και κοινωνικών παρεμβάσεων. Δομές, έρευνα, εκπαίδευση και εθελοντισμός από το 2013.</p>
+      </div>
+      <div>
+        <h4 data-i18n="ftNav">Πλοήγηση</h4>
+        <ul>
+          <li><a href="#etaireia" data-i18n="navAbout">Η Εταιρεία</a></li>
+          <li><a href="#filosofia" data-i18n="navPhil">Φιλοσοφία</a></li>
+          <li><a href="#domes" data-i18n="navStru">Δομές</a></li>
+          <li><a href="#skopoi" data-i18n="navAims">Σκοποί</a></li>
+          <li><a href="#draseis" data-i18n="navActs">Δράσεις</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ftWhere">Πού είμαστε</h4>
+        <ul>
+          <li data-i18n="ctAddr">Δημητρίου Σούτσου 13, Αθήνα 115 21</li>
+          <li data-i18n="st1addr">Ερμουπόλεως 44, Πειραιάς</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ftContact">Επικοινωνία</h4>
+        <ul>
+          <li><a href="tel:+302170008040">217 000 8040</a></li>
+          <li><a href="tel:+302104826111">210 482 6111</a></li>
+          <li><a href="mailto:info@mitosinstitute.gr">info@mitosinstitute.gr</a></li>
+          <li><a href="https://www.facebook.com/mitosinstitute" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.linkedin.com/company/mitos-civil-society-for-mental-health-social-interventions/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span data-i18n="ftRights">© <span id="yr"></span> ΜΙΤΟΣ ΑΜΚΕ. Με επιφύλαξη παντός δικαιώματος.</span>
+      <span>Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Προβολή εικόνας">
+  <button class="lb-x" id="lbx" aria-label="Κλείσιμο">&#10005;</button>
+  <img id="lbimg" src="" alt="">
+  <div class="lb-cap" id="lbcap"></div>
+</div>
+
+<script>
+window.EN={
+ brand:"MITOS", brandShort:"MITOS", brandSub:"Society for Mental Health &amp; Social Interventions",
+ navAbout:"The Society", navPhil:"Philosophy", navStru:"Facilities", navAims:"Our Aims", navActs:"Activities", navVol:"Volunteers", navContact:"Contact",
+ heroTag:"A non-profit civil society organisation",
+ heroTitle:"A thread by which the way back is found.",
+ heroLead:"MITOS designs and runs mental health facilities and social interventions for people who, without support, would be left outside. Since 2013, with a scientific team and an open door to the community.",
+ ctaStru:"Our facilities", ctaVol:"Become a volunteer",
+ f1:"The year the society was founded", f2:"Ages hosted at the Piraeus Adolescent Hostel",
+ f3:"Places at the facility", f4:"Care from a multidisciplinary therapeutic team",
+ abEyebrow:"The Society", abTitle:"Mental health and social inclusion, in the same sentence.",
+ abQuote:"“Created for the purpose of promoting physical and mental health and optimising social inclusion.”<small>From the founding charter of MITOS</small>",
+ abP1:"MITOS is a non-profit civil society organisation for mental health and social interventions. It provides medical, psychological, psychiatric and social care, with an emphasis on populations that are systematically left out: older people, the unemployed, the homeless, migrants and refugees, patients with chronic illness, people with disabilities, socially excluded groups, Roma communities and survivors of abuse.",
+ abP2:"Alongside the clinical work run psychoeducation and psychotherapy — for individuals, families, and social and professional groups. The aim is not only to treat the disorder but to prevent it, and to raise the quality of life around it.",
+ abP3:"The society brings together psychiatrists, child psychiatrists, psychologists, mental health nurses, social workers, occupational therapists, psychotherapists and teachers — a multidisciplinary team working to one plan and in one language.",
+ phEyebrow:"Our philosophy", phTitle:"Four principles that hold the work upright.",
+ p1t:"Treatment and prevention", p1d:"Contributing to the more effective and more complete treatment of mental disorders — and, just as seriously, to preventing them before they take hold.",
+ p2t:"Quality of life", p2d:"Promoting mental health, psychoeducation and psychotherapy for individuals, families, social and professional groups and wider systems.",
+ p3t:"Social intervention", p3d:"Medical, psychological, psychiatric and social care for vulnerable groups — where the need is greatest and access is smallest.",
+ p4t:"Scientific dialogue", p4d:"A space where psychiatrists, psychologists, nurses and social workers exchange views, train, and hold their own practice up to scrutiny.",
+ stEyebrow:"Mental health facilities", stTitle:"Where care becomes everyday life.",
+ stLead:"Our facilities are not clinics. They are places to live in, open to society, where the therapeutic work happens through routine, school, play and relationship.",
+ stB1:"Operating since September 2023", stB2:"Day centre",
+ st1t:"Piraeus Adolescent Hostel",
+ st1d:"A mental health unit operating as an intermediate structure in the transition to community living. It hosts boys aged 13 to 18 with serious psychosocial problems or mental disorders, from severely disrupted family environments, or with delinquent behaviour and a heightened risk of it.",
+ st1d2:"It works as a family environment, open to society, with a high standard of round-the-clock care. It is in no sense a clinic or a hospital and no inpatient treatment is provided.",
+ st1l1:"Individual psychological counselling and psychiatric follow-up",
+ st1l2:"Group socialisation programmes and learning support",
+ st1l3:"Training in independent living and social skills",
+ st1l4:"Vocational guidance and connection with the labour market",
+ st1l5:"Creative occupation and occupational therapy",
+ st1l6:"Substance-use prevention and emotion management programmes",
+ st1l7:"Support for the family environment and liaison with the school",
+ st1addr:"44 Ermoupoleos St, Piraeus",
+ st1team:"Psychologists, child psychiatrists, nurses, teachers and social care workers",
+ st1fund:"The Recovery and Resilience Facility, supervised by the Ministry of Health — programme “Creation of new Mental Health Housing Units”",
+ st2t:"“Enargeia” Day Centre for Total Care",
+ st2d:"The second MITOS facility, designed for complete day-to-day care without overnight stay. It is for people who need systematic psychiatric and psychosocial support while remaining at home and in their own environment.",
+ st2l1:"Psychiatric follow-up and individual psychotherapy",
+ st2l2:"Psychoeducation groups for members and their families",
+ st2l3:"Creative occupation, occupational therapy and social skills",
+ st2l4:"Connection with health, welfare and employment services",
+ aiEyebrow:"Our aims", aiTitle:"Fourteen aims, written into the charter.",
+ a1:"Psychosocial intervention with defined strategies and techniques, in the immediate, medium and long term, in humanitarian crises and natural disasters.",
+ a2:"Studying and promoting solutions to the problems faced by marginalised social groups, individually and collectively.",
+ a3:"Participation in programmes on the relationship between intrauterine life and adult mental health, and on the effect of parents' mental health during pregnancy.",
+ a4:"Cultivating research activity in the field of mental health.",
+ a5:"Continuing education for mental health professionals and for others who need psychological knowledge in their work.",
+ a6:"Raising awareness among school students and the wider public on communication, mental health and quality of life.",
+ a7:"Psychoeducational interventions for municipal and corporate employees, teachers, students and members of the community.",
+ a8:"Establishing and running health and mental health units, psychiatric practices and psychotherapeutic interventions.",
+ a9:"Participation in the debate on bioethics within the developments of biotechnology.",
+ a10:"Activities that bring out the relationship between mental health and cultural heritage.",
+ a11:"Addressing psychological dependence on psychoactive substances.",
+ a12:"Studying the psychosocial consequences of technological and digital development.",
+ a13:"Research and training programmes in cooperation with scientific, social and international bodies.",
+ a14:"Developing and strengthening volunteering and local communities.",
+ acEyebrow:"Activities", acTitle:"Life outside the facility counts just as much.",
+ acLead:"Outings, sport, workshops, celebrations, first aid training and visits to cultural venues: every activity is part of the therapeutic plan, not a break from it.",
+ g1:"Summer outings", g2:"Sport", g3:"Cultural visits", g4:"Celebrations", g5:"Creative workshops", g6:"First aid",
+ bdEyebrow:"Board of Directors", bdTitle:"Who signs the decisions.",
+ b1n:"Georgios Karampoutakis", b1r:"President", b1d:"Psychiatrist, MD, MSc, PhD. Also President of the Hellenic American Psychiatric Association.",
+ b2n:"Georgios Papadimas", b2r:"Managing Director", b2d:"Coordination of the facilities and the delivery of the programmes.",
+ b3n:"Nikos Chalarakis", b3r:"General Secretary", b3d:"Secretarial and administrative support to the Board of Directors.",
+ voEyebrow:"Volunteering", voTitle:"Volunteering is work offered without material reward — and its value is enormous.",
+ voLead:"If you want to give something to adolescents who need it, respect difference, and can work within a team, there is a place for you. Our volunteers help build a safe environment, strengthen skills, and take back experience and knowledge of their own.",
+ voCta:"Register your interest", voCta2:"Ask us first",
+ ctEyebrow:"Contact", ctTitle:"For any information or question.",
+ ctLead:"Write or call — about a referral, a partnership, volunteering or a donation.",
+ ctAddr:"13 Dimitriou Soutsou St, Athens 115 21",
+ lblAddr:"Address", lblTeam:"Team", lblFund:"Funding", lblInfo:"Information",
+ lblOffice:"Offices", lblStru:"Hostel", lblPhone:"Telephone", lblSocial:"Social",
+ fName:"Full name", fEmail:"Email", fPhone:"Telephone", fMsg:"Your message", fSend:"Send",
+ fNote:"Your details are used solely to answer your enquiry.",
+ ftAbout:"A non-profit civil society organisation for mental health and social interventions. Facilities, research, training and volunteering since 2013.",
+ ftNav:"Navigation", ftWhere:"Where we are", ftContact:"Contact",
+ ftRights:"© <span id=\"yr\"></span> MITOS. All rights reserved."
+};
+(function(){
+  var d=document, EL={}, reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  d.querySelectorAll('[data-i18n]').forEach(function(el){ var k=el.getAttribute('data-i18n'); if(!(k in EL)) EL[k]=el.innerHTML; });
+  var META={el:{title:"ΜΙΤΟΣ — Εταιρεία Ψυχικής Υγείας & Κοινωνικών Παρεμβάσεων"},en:{title:"MITOS — Society for Mental Health & Social Interventions"}};
+  function apply(l){
+    var dict = l==='en' ? window.EN : EL;
+    d.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n'), v=dict[k]; if(v===undefined) v=EL[k];
+      if(v!==undefined) el.innerHTML=v;
+    });
+    d.documentElement.lang=l; d.title=META[l].title;
+    var y=d.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+    d.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang===l)); });
+    try{ localStorage.setItem('mitos-lang', l); }catch(e){}
+  }
+  d.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.lang); }); });
+  d.getElementById('yr').textContent=new Date().getFullYear();
+  try{ if(localStorage.getItem('mitos-lang')==='en') apply('en'); }catch(e){}
+
+  var hdr=d.getElementById('hdr');
+  function onScroll(){ hdr.classList.toggle('stuck', window.scrollY>60); }
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  var mnav=d.getElementById('mnav');
+  function setNav(o){ mnav.classList.toggle('open',o); d.body.style.overflow=o?'hidden':''; d.getElementById('burger').setAttribute('aria-expanded',o); }
+  d.getElementById('burger').addEventListener('click',function(){setNav(true)});
+  d.getElementById('mclose').addEventListener('click',function(){setNav(false)});
+  mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setNav(false)})});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} })},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  d.querySelectorAll('.rv').forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+
+  var hi=d.querySelector('.hero-media img');
+  if(hi && !reduced){ var t=false;
+    addEventListener('scroll',function(){ if(t)return; t=true; requestAnimationFrame(function(){ var y=window.scrollY; if(y<window.innerHeight) hi.style.transform='translate3d(0,'+(y*0.16).toFixed(1)+'px,0)'; t=false; }); },{passive:true}); }
+
+  var lb=d.getElementById('lb'), lbimg=d.getElementById('lbimg'), lbcap=d.getElementById('lbcap');
+  function open(src,alt,cap){ lbimg.src=src; lbimg.alt=alt||''; lbcap.textContent=cap||''; lb.classList.add('open'); d.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); d.body.style.overflow=''; setTimeout(function(){lbimg.src=''},350); }
+  d.addEventListener('click',function(e){
+    var a=e.target.closest('[data-lb-a]'); if(a) e.preventDefault();
+    var im=e.target.closest('img[data-lb]');
+    if(im){ e.preventDefault(); open(im.currentSrc||im.src, im.alt, im.getAttribute('data-cap')); }
+  });
+  d.getElementById('lbx').addEventListener('click',close);
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape'){ close(); setNav(false); } });
+})();
+</script>
+</body>
+</html>
