@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="el" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -14,72 +14,119 @@
 <link rel="icon" href="assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Commissioner:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Commissioner:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero.webp" imagesrcset="assets/hero-narrow.webp 1080w, assets/hero.webp 1800w" imagesizes="100vw" fetchpriority="high">
+<script>document.documentElement.className='js';</script>
 <style>
+/* ================================================================
+   ΜΙΤΟΣ — Εταιρεία Ψυχικής Υγείας & Κοινωνικών Παρεμβάσεων
+   Design System v2 · EB Garamond + Commissioner (both Greek-native)
+   One accent (clay) · one deep tone (forest ink) · paper ground
+   Signature interaction: the thread (μίτος) that draws itself down
+   the page as you scroll · Ambient: the hero Ken Burns, once
+   ================================================================ */
 :root{
-  --ink:#0E2F2C; --ink-2:#144340; --ink-3:#1C5A55;
+  --ink:#0E2F2C; --ink-2:#123B37; --ink-3:#1C5A55;
   --paper:#F6F3EC; --paper-2:#EDE7DC; --card:#FFFFFF;
-  --clay:#C8703F; --clay-d:#A85A2E; --moss:#8FB4A9;
+  --clay:#C8703F; --clay-d:#A85A2E; --clay-l:#E4A276; --moss:#8FB4A9;
   --body:#3B4A47; --muted:#6E7E7B;
-  --line:rgba(14,47,44,.14); --line-d:rgba(255,255,255,.17);
+  --line:rgba(14,47,44,.14); --line-d:rgba(255,255,255,.16);
   --serif:"EB Garamond",Georgia,"Times New Roman",serif;
   --sans:"Commissioner",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --ease:cubic-bezier(.22,.61,.36,1);
-  --pad:clamp(3.6rem,7vw,7rem);
+  --ease:cubic-bezier(.22,.61,.36,1); --out:cubic-bezier(.16,1,.3,1);
+  --pad:clamp(4.5rem,8vw,7.5rem);
   --wrap:min(1220px,90%);
+  --nav:76px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--nav) + 12px)}
 body{margin:0;background:var(--paper);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.74;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;display:block;height:auto}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;color:var(--ink);line-height:1.12}
-h1{font-size:clamp(2.6rem,1.5rem + 4.4vw,5.2rem)}
-h2{font-size:clamp(2rem,1.4rem + 2.5vw,3.4rem)}
-h3{font-size:clamp(1.3rem,1.1rem + .75vw,1.75rem)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:400;color:var(--ink);line-height:1.08;letter-spacing:-.006em}
+h1{font-size:clamp(2.8rem,1.4rem + 5.2vw,5.8rem)}
+h2{font-size:clamp(2.1rem,1.4rem + 2.7vw,3.7rem)}
+h3{font-size:clamp(1.35rem,1.15rem + .75vw,1.85rem)}
 p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
+em{font-style:italic}
 ::selection{background:var(--clay);color:#fff}
-:focus-visible{outline:2px solid var(--clay);outline-offset:3px}
-.wrap{width:var(--wrap);margin-inline:auto}
-.sec{padding-block:var(--pad)}
-.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--clay-d);margin-bottom:1.1rem}
-.eyebrow::before{content:"";width:26px;height:1px;background:var(--clay)}
-.on-dark{background:var(--ink);color:#C4D6D2}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:4px}
+.wrap{width:var(--wrap);margin-inline:auto;position:relative}
+.sec{padding-block:var(--pad);position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--clay-d);margin-bottom:1.2rem}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--clay);transform-origin:0 50%;transform:scaleX(0);transition:transform .7s var(--out) .1s}
+.rv.in .eyebrow::before,.eyebrow.in::before,.no-js .eyebrow::before{transform:scaleX(1)}
+.on-dark{background:var(--ink);color:#C4D6D2;position:relative;overflow:clip}
 .on-dark h1,.on-dark h2,.on-dark h3,.on-dark h4{color:#fff}
 .on-dark .eyebrow{color:var(--moss)}
 .on-dark .eyebrow::before{background:var(--moss)}
-.lead{font-size:clamp(1.03rem,1rem + .3vw,1.19rem)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.92rem 1.7rem;border-radius:100px;font-size:.76rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease)}
-.btn-p{background:var(--clay);color:#fff}
-.btn-p:hover{background:var(--clay-d);transform:translateY(-2px)}
-.btn-o{border-color:rgba(255,255,255,.45);color:#fff}
-.btn-o:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
-.btn-d{border-color:var(--line);color:var(--ink)}
-.btn-d:hover{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-2px)}
+.on-dark::before{content:"";position:absolute;right:-10%;top:-30%;width:min(760px,80%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(143,180,169,.13),transparent 62%);pointer-events:none}
+.on-dark>*{position:relative}
+.lead{font-size:clamp(1.04rem,1rem + .3vw,1.2rem)}
+.on-dark .lead{color:#BDD0CC}
 
-/* header */
-.hdr{position:fixed;inset:0 0 auto 0;z-index:70;padding-block:1.05rem;transition:background .45s var(--ease),box-shadow .45s var(--ease),padding .45s var(--ease)}
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1rem 1.8rem;border-radius:100px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;overflow:hidden;isolation:isolate;transition:color .4s var(--ease),border-color .4s var(--ease),transform .35s var(--out)}
+.btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex:none;transition:transform .4s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;transform:translateY(101%);transition:transform .5s var(--ease)}
+.btn-p{background:var(--clay);color:#fff}.btn-p::after{background:var(--ink)}
+.btn-o{border-color:rgba(255,255,255,.45);color:#fff}.btn-o::after{background:#fff}.btn-o:hover{color:var(--ink);border-color:#fff}
+.btn-d{border-color:rgba(14,47,44,.35);color:var(--ink)}.btn-d::after{background:var(--ink)}.btn-d:hover{color:#fff;border-color:var(--ink)}
+.link{display:inline-flex;align-items:center;gap:.6rem;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:1rem .2rem;position:relative}
+.link::after{content:"";position:absolute;left:.2rem;right:100%;bottom:.7rem;height:1px;background:currentColor;transition:right .45s var(--out)}
+.link svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;transition:transform .4s var(--ease)}
+@media(hover:hover){.btn:hover::after{transform:translateY(0)}.btn:hover svg{transform:translateX(4px)}.btn-p:hover{color:#fff}.link:hover::after{right:.2rem}.link:hover svg{transform:translateX(4px)}}
+.btn:active{transform:scale(.98)}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;margin-top:2rem}
+
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .5s var(--out),transform .5s var(--out)}
+.js .rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.06s}.rv.d2{transition-delay:.12s}.rv.d3{transition-delay:.18s}.rv.d4{transition-delay:.24s}
+.js .lines .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.js .lines .ln>span{display:block;transform:translateY(110%);transition:transform .9s var(--out)}
+.js .lines.in .ln>span{transform:none}
+.js .lines.in .ln:nth-child(2)>span{transition-delay:.09s}
+.js .lines.in .ln:nth-child(3)>span{transition-delay:.18s}
+.js .curtain{position:relative;display:block}
+.js .curtain::after{content:"";position:absolute;inset:0;background:var(--paper-2);transform-origin:100% 50%;transition:transform .9s var(--out)}
+.js .curtain.in::after{transform:scaleX(0)}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--clay-l),var(--clay));z-index:120;transition:width .1s linear}
+
+/* ================================ THE THREAD (signature) ================================ */
+.thread{position:absolute;left:0;top:0;width:calc((100% - var(--wrap))/2);height:100%;pointer-events:none;z-index:5;overflow:visible}
+.thread path{fill:none;stroke:var(--clay);stroke-width:1.5;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.9}
+.thread .knot{fill:none;stroke:var(--clay);stroke-width:1.5;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .6s var(--ease)}
+.thread .knot.in{opacity:.9}
+main{position:relative}
+@media(max-width:1340px){.thread{display:none}}
+
+/* ================================ HEADER ================================ */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:70;height:var(--nav);display:flex;align-items:center;transition:background .45s var(--ease),box-shadow .45s var(--ease),transform .5s var(--ease)}
+.hdr.hide{transform:translateY(-100%)}
 .hdr-in{width:var(--wrap);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:1.2rem}
 .brand{display:flex;align-items:center;gap:.8rem;min-width:0}
-.brand img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff;padding:3px}
+.brand img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff;padding:3px;transition:transform .6s var(--out)}
 .brand-tx{display:grid;line-height:1.15;min-width:0}
 .bn-short{display:none}
-.brand-tx b{font-family:var(--serif);font-weight:600;font-size:1.28rem;letter-spacing:.16em;color:#fff;transition:color .45s var(--ease)}
-.brand-tx span{font-size:.58rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:color .45s var(--ease)}
+.brand-tx b{font-family:var(--serif);font-weight:500;font-size:1.3rem;letter-spacing:.16em;color:#fff;transition:color .45s var(--ease)}
+.brand-tx span{font-size:.56rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:color .45s var(--ease)}
 .nav{display:flex;align-items:center;gap:1.8rem}
-.nav a{font-size:.74rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.87);position:relative;padding-block:.35rem;transition:color .35s var(--ease)}
-.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--clay);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--ease)}
-.nav a:hover::after{transform:scaleX(1)}
+.nav a{font-size:.72rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.87);position:relative;padding-block:.35rem;transition:color .35s var(--ease)}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--clay);transition:right .45s var(--out)}
+.nav a:hover::after,.nav a.active::after{right:0}
 .hdr-right{display:flex;align-items:center;gap:.85rem}
 .lang{display:flex;align-items:center;gap:.15rem;border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:2px;transition:border-color .45s var(--ease)}
-.lang button{display:flex;align-items:center;gap:.4rem;background:none;border:0;cursor:pointer;color:rgba(255,255,255,.82);font-family:var(--sans);font-size:.65rem;font-weight:600;letter-spacing:.1em;padding:.4rem .7rem;border-radius:100px;transition:background .3s var(--ease),color .3s var(--ease)}
+.lang button{display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.82);font-size:.65rem;font-weight:600;letter-spacing:.1em;padding:.4rem .7rem;border-radius:100px;transition:background .3s var(--ease),color .3s var(--ease)}
 .lang button[aria-pressed="true"]{background:var(--clay);color:#fff}
 .flag{display:block;width:18px;height:12px;border-radius:2px;overflow:hidden;flex:none;line-height:0;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
 .flag svg{display:block;width:100%;height:100%}
-.burger{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.3);background:none;border-radius:100px;cursor:pointer;place-items:center;transition:border-color .45s var(--ease)}
+.burger{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.3);border-radius:100px;place-items:center;transition:border-color .45s var(--ease)}
 .burger span{display:block;width:18px;height:1.5px;background:#fff;margin:3px 0;transition:background .45s var(--ease)}
-.hdr.stuck{background:rgba(246,243,236,.95);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line);padding-block:.6rem}
+.hdr.stuck{background:rgba(246,243,236,.93);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);box-shadow:0 1px 0 var(--line)}
 .hdr.stuck .brand-tx b{color:var(--ink)}
 .hdr.stuck .brand-tx span{color:var(--muted)}
 .hdr.stuck .nav a{color:var(--ink-2)}
@@ -88,172 +135,211 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
 .hdr.stuck .lang button[aria-pressed="true"]{color:#fff}
 .hdr.stuck .burger{border-color:var(--line)}
 .hdr.stuck .burger span{background:var(--ink)}
+@media(hover:hover){.brand:hover img{transform:rotate(-12deg) scale(1.06)}}
 .mnav{position:fixed;inset:0;z-index:90;background:var(--ink);display:grid;grid-template-rows:auto 1fr auto;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
 .mnav.open{opacity:1;visibility:visible}
-.mnav-top{display:flex;justify-content:flex-end;padding:1.1rem 5%}
-.mclose{width:48px;height:48px;border:1px solid var(--line-d);background:none;border-radius:100px;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center}
-.mnav nav{display:grid;align-content:center;gap:.2rem;padding:0 8%}
-.mnav nav a{font-family:var(--serif);font-size:clamp(1.7rem,7vw,2.4rem);color:#fff;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.09)}
+.mnav-top{display:flex;justify-content:flex-end;align-items:center;height:var(--nav);padding-inline:5%}
+.mclose{width:48px;height:48px;border:1px solid var(--line-d);border-radius:100px;color:#fff;font-size:1.5rem;line-height:1;display:grid;place-items:center;transition:background .3s var(--ease),transform .35s var(--ease)}
+.mclose:hover{background:rgba(255,255,255,.09);transform:rotate(90deg)}
+.mnav nav{display:grid;align-content:center;gap:.1rem;padding:0 8%;overflow-y:auto}
+.mnav nav a{font-family:var(--serif);font-size:clamp(1.65rem,6.6vw,2.3rem);color:#fff;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.09);display:flex;align-items:baseline;gap:.9rem;opacity:0;transform:translateY(14px)}
+.mnav nav a .n{font-family:var(--sans);font-size:.58rem;letter-spacing:.2em;color:var(--clay-l);font-weight:600}
+.mnav.open nav a{animation:mobIn .5s var(--out) forwards}
+.mnav.open nav a:nth-child(2){animation-delay:.04s}.mnav.open nav a:nth-child(3){animation-delay:.08s}.mnav.open nav a:nth-child(4){animation-delay:.12s}
+.mnav.open nav a:nth-child(5){animation-delay:.16s}.mnav.open nav a:nth-child(6){animation-delay:.2s}.mnav.open nav a:nth-child(7){animation-delay:.24s}
+@keyframes mobIn{to{opacity:1;transform:none}}
 .mnav-foot{padding:1.6rem 8% 2.4rem;display:grid;gap:.4rem;color:var(--moss);font-size:.9rem}
 .mnav-foot a{color:#fff;font-weight:500}
 
-/* hero */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--ink)}
+/* ================================ HERO ================================ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--ink);isolation:isolate}
 .hero-media{position:absolute;inset:0;z-index:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;will-change:transform;transform:scale(1.1);animation:heroIn 3s var(--ease) forwards}
-@keyframes heroIn{to{transform:scale(1)}}
-.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(6,26,24,.92) 0%,rgba(6,26,24,.7) 42%,rgba(6,26,24,.34) 72%,rgba(6,26,24,.6) 100%)}
-.hero-in{position:relative;z-index:2;width:var(--wrap);margin-inline:auto;padding-block:8rem 5rem;max-width:none}
-.hero .tag{display:inline-block;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1rem + .55vw,1.5rem);color:var(--moss);margin-bottom:1rem}
-.hero h1{color:#fff;max-width:15ch;text-wrap:balance;text-shadow:0 2px 44px rgba(0,0,0,.4)}
-.hero .lead{margin-top:1.6rem;max-width:54ch;color:rgba(226,238,235,.92)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.2rem}
-.scroll-cue{position:absolute;left:50%;bottom:1.5rem;transform:translateX(-50%);z-index:3;width:1px;height:52px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.5));overflow:hidden}
-.scroll-cue::after{content:"";position:absolute;inset:0;background:#fff;animation:cue 2.4s var(--ease) infinite}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;transform:scale(1.07);transform-origin:60% 40%;animation:kb 24s var(--ease) forwards}
+@keyframes kb{to{transform:scale(1)}}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(6,26,24,.94) 0%,rgba(6,26,24,.72) 42%,rgba(6,26,24,.3) 72%,rgba(6,26,24,.55) 100%),linear-gradient(180deg,rgba(6,26,24,.35),transparent 30%,transparent 70%,rgba(6,26,24,.6))}
+.hero-in{position:relative;z-index:2;width:var(--wrap);margin-inline:auto;padding-block:8rem 6rem}
+.hero .tag{display:inline-block;font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,1rem + .6vw,1.55rem);color:var(--moss);margin-bottom:1.1rem}
+.hero h1{color:#fff;max-width:14ch;text-wrap:balance}
+.hero h1 em{color:var(--clay-l)}
+.hero .lead{margin-top:1.6rem;max-width:52ch;color:rgba(226,238,235,.92)}
+.hero-since{position:absolute;right:5%;bottom:2.4rem;z-index:2;display:grid;gap:.2rem;text-align:right;color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+.hero-since b{font-family:var(--serif);font-size:2rem;font-weight:400;color:#fff;letter-spacing:0;line-height:1;text-transform:none}
+.scroll-cue{position:absolute;left:50%;bottom:1.4rem;transform:translateX(-50%);z-index:3;width:1px;height:56px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.5));overflow:hidden}
+.scroll-cue::after{content:"";position:absolute;inset:0;background:#fff;transform:translateY(-100%);animation:cue 2.6s var(--ease) 1.2s 3}
 @keyframes cue{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
 
-/* facts */
-.facts{background:var(--paper-2)}
-.facts-in{width:var(--wrap);margin-inline:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line)}
-.fact{background:var(--paper-2);padding:clamp(1.6rem,3vw,2.4rem) clamp(1rem,2vw,1.5rem);display:grid;gap:.35rem;align-content:start}
-.fact b{font-family:var(--serif);font-size:clamp(2rem,1.5rem + 1.6vw,3rem);color:var(--ink);font-weight:500;line-height:1}
-.fact span{font-size:.79rem;color:var(--muted);line-height:1.5}
+/* ================================ FACTS ================================ */
+.facts{background:var(--paper-2);position:relative;z-index:3}
+.facts-in{width:var(--wrap);margin-inline:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fact{padding:clamp(1.7rem,3vw,2.5rem) clamp(1rem,2vw,1.6rem) clamp(1.7rem,3vw,2.5rem) 0;display:grid;gap:.4rem;align-content:start;position:relative}
+.fact+.fact{padding-left:clamp(1rem,2vw,1.6rem);border-left:1px solid var(--line)}
+.fact b{font-family:var(--serif);font-size:clamp(2.1rem,1.5rem + 1.8vw,3.2rem);color:var(--ink);font-weight:400;line-height:1}
+.fact span{font-size:.78rem;color:var(--muted);line-height:1.5}
+.fact::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--clay);transform:scaleX(0);transform-origin:0 50%;transition:transform .9s var(--out) .15s}
+.fact.in::after,.no-js .fact::after{transform:scaleX(1)}
 
-/* intro */
-.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(2.4rem,5vw,5rem);align-items:start}
-.quote{font-family:var(--serif);font-size:clamp(1.5rem,1.2rem + 1.5vw,2.35rem);line-height:1.3;color:var(--ink);border-left:2px solid var(--clay);padding-left:clamp(1.1rem,2.4vw,2rem)}
-.quote small{display:block;margin-top:1.1rem;font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+/* ================================ INTRO ================================ */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(2.4rem,6vw,6rem);align-items:start}
+.intro-side{position:sticky;top:calc(var(--nav) + 28px)}
+.quote{font-family:var(--serif);font-size:clamp(1.55rem,1.2rem + 1.6vw,2.5rem);line-height:1.28;color:var(--ink);border-left:2px solid var(--clay);padding-left:clamp(1.1rem,2.4vw,2rem);margin:2rem 0 0}
+.quote small{display:block;margin-top:1.1rem;font-family:var(--sans);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.intro .lead{font-family:var(--serif);font-size:clamp(1.25rem,1.1rem + .8vw,1.7rem);line-height:1.42;color:var(--ink)}
 
-/* principles */
+/* ================================ PRINCIPLES ================================ */
 .prin{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line-d);border:1px solid var(--line-d);margin-top:3rem}
-.prin article{background:var(--ink);padding:clamp(1.8rem,3vw,2.6rem);display:grid;gap:.8rem;align-content:start;transition:background .4s var(--ease)}
-.prin article:hover{background:var(--ink-2)}
-.prin .no{font-family:var(--serif);font-size:1.1rem;color:var(--moss)}
+.prin article{background:var(--ink);padding:clamp(1.9rem,3.2vw,2.8rem);display:grid;grid-template-columns:auto minmax(0,1fr);gap:.4rem 1.3rem;align-content:start;transition:background .4s var(--ease)}
+.prin .no{font-family:var(--serif);font-size:clamp(2.2rem,1.6rem + 2vw,3.4rem);line-height:1;color:var(--moss);grid-row:1/3;font-weight:400}
+.prin h3{font-size:1.3rem;align-self:end}
 .prin p{font-size:.95rem;color:#BDD0CC;margin:0}
+@media(hover:hover){.prin article:hover{background:var(--ink-2)}}
 
-/* structures */
-.stru{display:grid;gap:clamp(2rem,4vw,3.4rem);margin-top:3rem}
-.stru-row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.8rem,4vw,3.4rem);align-items:center;background:var(--card);border:1px solid var(--line)}
-.stru-row.rev>figure{order:2}
-.stru-row figure{margin:0;height:100%;min-height:clamp(280px,32vw,430px);position:relative;overflow:hidden}
-.stru-row figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.stru-tx{padding:clamp(1.8rem,3.4vw,3.2rem)}
-.badge{display:inline-block;font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay-d);border:1px solid var(--clay);border-radius:100px;padding:.32rem .85rem;margin-bottom:1rem}
-.ticks{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:.7rem}
-.ticks li{position:relative;padding-left:1.6rem;font-size:.95rem}
-.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-left:1px solid var(--clay);border-bottom:1px solid var(--clay);transform:rotate(-45deg)}
-.on-dark .ticks li::before{border-color:var(--moss)}
-.meta{display:grid;gap:0;margin-top:1.6rem;border-top:1px solid var(--line)}
+/* ================================ STRUCTURES ================================ */
+.stru{display:grid;gap:clamp(3rem,6vw,5.5rem);margin-top:3rem}
+.stru-row{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(2rem,5vw,4.6rem);align-items:start}
+.stru-row.rev figure{order:2}
+.stru-row figure{margin:0;position:sticky;top:calc(var(--nav) + 28px)}
+.stru-row figure img{width:100%;height:auto}
+.stru-row figcaption{margin-top:.8rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.badge{display:inline-block;font-size:.64rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay-d);border:1px solid var(--clay);border-radius:100px;padding:.36rem .9rem;margin-bottom:1.1rem}
+.ticks{list-style:none;margin:1.6rem 0 0;padding:0;display:grid}
+.ticks li{position:relative;padding:.75rem 0 .75rem 1.8rem;font-size:.95rem;border-top:1px solid var(--line)}
+.ticks li::before{content:"";position:absolute;left:.1rem;top:1.2em;width:9px;height:9px;border-left:1px solid var(--clay);border-bottom:1px solid var(--clay);transform:rotate(-45deg)}
+.meta{display:grid;margin-top:1.6rem;border-top:1px solid var(--line)}
 .meta .row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:.9rem;padding-block:.7rem;border-bottom:1px solid var(--line);font-size:.93rem}
-.meta .row b{font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:.3em}
+.meta .row b{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:.3em}
 
-/* aims */
+/* ================================ AIMS ================================ */
 .aims{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(2rem,5vw,4.4rem);margin-top:2.8rem;counter-reset:a}
-.aim{display:grid;grid-template-columns:52px minmax(0,1fr);gap:1rem;padding-block:1.15rem;border-bottom:1px solid var(--line-d);align-items:start}
-.aim::before{counter-increment:a;content:counter(a,decimal-leading-zero);font-family:var(--serif);font-size:1.05rem;color:var(--moss);padding-top:.2em}
+.aim{display:grid;grid-template-columns:56px minmax(0,1fr);gap:1rem;padding-block:1.15rem;border-bottom:1px solid var(--line-d);align-items:start;position:relative}
+.aim::before{counter-increment:a;content:counter(a,decimal-leading-zero);font-family:var(--serif);font-size:1.2rem;color:var(--moss);padding-top:.1em}
+.aim::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--clay);transition:width 1s var(--out)}
+.aim.in::after{width:100%}
 .aim p{font-size:.95rem;color:#C4D6D2;margin:0}
 
-/* gallery */
-.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:3rem}
-.gal a{display:block;position:relative;overflow:hidden;background:var(--paper-2)}
-.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .8s var(--ease)}
-.gal a:hover img{transform:scale(1.05)}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.2rem .9rem .8rem;color:#fff;font-size:.83rem;background:linear-gradient(180deg,transparent,rgba(8,26,24,.85))}
+/* ================================ GALLERY — photographs whole, justified rows ================================ */
+.gal{display:grid;gap:12px;margin-top:3rem}
+.gal-row{display:flex;gap:12px;align-items:flex-start}
+.gal-row a{display:block;flex:1 1 0;min-width:0;text-decoration:none}
+.gal-row figure{margin:0}
+.gal-row .ph{display:block;overflow:hidden;background:var(--paper-2)}
+.gal-row img{width:100%;height:auto;transition:transform .9s var(--out)}
+.gal-row figcaption{margin-top:.6rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.6rem}
+.gal-row figcaption::before{content:"";width:16px;height:1px;background:var(--clay)}
+@media(hover:hover){.gal-row a:hover img{transform:scale(1.04)}}
 
-/* board */
+/* ================================ BOARD ================================ */
 .board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3rem}
-.board article{background:var(--card);padding:clamp(1.8rem,3vw,2.6rem);display:grid;gap:.6rem;align-content:start}
-.mono{width:64px;height:64px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:1.4rem;letter-spacing:.02em;margin-bottom:.6rem}
-.board h3{font-size:1.28rem}
-.board span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-d)}
+.board article{background:var(--card);padding:clamp(1.9rem,3.2vw,2.8rem);display:grid;gap:.55rem;align-content:start;transition:background .4s var(--ease)}
+.mono{width:66px;height:66px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:1.45rem;letter-spacing:.02em;margin-bottom:.7rem;position:relative}
+.mono::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--clay);opacity:.5}
+.board h3{font-size:1.3rem}
+.board span{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-d)}
+.board p{font-size:.93rem;margin-top:.4rem}
+@media(hover:hover){.board article:hover{background:var(--paper)}}
 
-/* cta band */
-.cta{text-align:center;padding-block:clamp(3.4rem,7vw,6rem)}
-.cta h2{max-width:20ch;margin-inline:auto}
-.cta p{max-width:60ch;margin:1.3rem auto 0;color:#BDD0CC}
-.cta .hero-cta{justify-content:center}
+/* ================================ CTA BAND ================================ */
+.cta{text-align:center;padding-block:clamp(4rem,8vw,7rem)}
+.cta h2{max-width:22ch;margin-inline:auto;font-size:clamp(2rem,1.3rem + 2.6vw,3.6rem)}
+.cta h2 em{color:var(--clay-l)}
+.cta p{max-width:62ch;margin:1.4rem auto 0;color:#BDD0CC}
+.cta .cta-row{justify-content:center}
 
-/* contact */
+/* ================================ CONTACT ================================ */
 .ct{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2.2rem,5vw,4.4rem);align-items:start}
+form.cf{background:var(--card);border:1px solid var(--line);padding:clamp(1.5rem,3.2vw,2.5rem);box-shadow:0 40px 80px -50px rgba(14,47,44,.35)}
 .field{display:grid;gap:.4rem;margin-bottom:1rem}
-.field label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.field input,.field textarea{font-family:var(--sans);font-size:.97rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.82rem .95rem;width:100%;transition:border-color .3s var(--ease)}
+.field label{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.field input,.field textarea{font-family:var(--sans);font-size:.97rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.85rem .95rem;width:100%;transition:border-color .3s var(--ease),background .3s,box-shadow .3s}
 .field textarea{min-height:132px;resize:vertical}
-.field input:focus,.field textarea:focus{border-color:var(--clay);outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--clay);outline:none;background:#fff;box-shadow:0 0 0 3px rgba(200,112,63,.15)}
 .hp{position:absolute;left:-9999px}
-.ct-list{display:grid;border-top:1px solid var(--line)}
+.ct-list{display:grid;border-top:1px solid var(--line);margin-top:2rem}
 .ct-list .row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:1rem;padding-block:1.05rem;border-bottom:1px solid var(--line);font-size:.97rem}
-.ct-list .row b{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:.25em}
-.ct-list a:hover{color:var(--clay-d)}
-.note{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+.ct-list .row b{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:.25em}
+.ct-list a{border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.ct-list a:hover{color:var(--clay-d);border-color:var(--clay-d)}
+.note{margin-top:1rem;font-size:.84rem;color:var(--muted)}
 
-/* footer */
-.ft{background:var(--ink);color:#9EB6B2;padding-block:clamp(3rem,5vw,4.4rem) 0}
-.ft-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:clamp(1.8rem,4vw,3rem);padding-bottom:2.8rem;border-bottom:1px solid var(--line-d)}
-.ft h4{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;font-family:var(--sans);font-weight:600;margin-bottom:1.1rem}
+/* ================================ FOOTER ================================ */
+.ft{background:var(--ink);color:#9EB6B2;padding-block:clamp(3rem,5vw,4.4rem) 0;position:relative;overflow:hidden}
+.ft::before{content:"";position:absolute;right:-10%;bottom:-40%;width:min(700px,80%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(143,180,169,.09),transparent 64%);pointer-events:none}
+.ft-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:clamp(1.8rem,4vw,3rem);padding-bottom:2.8rem;border-bottom:1px solid var(--line-d);position:relative}
+.ft h4{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;font-family:var(--sans);font-weight:600;margin-bottom:1.1rem}
 .ft ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem;font-size:.92rem}
+.ft a{transition:color .3s,padding-left .35s var(--ease)}
 .ft a:hover{color:#fff}
+.ft ul a:hover{padding-left:.25rem}
 .ft-brand{display:flex;align-items:center;gap:.8rem;margin-bottom:1.1rem}
 .ft-brand img{width:48px;height:48px;object-fit:contain;border-radius:50%;background:#fff;padding:3px}
-.ft-brand b{font-family:var(--serif);font-size:1.3rem;color:#fff;font-weight:600;letter-spacing:.16em}
-.ft-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-block:1.5rem;font-size:.82rem}
+.ft-brand b{font-family:var(--serif);font-size:1.3rem;color:#fff;font-weight:500;letter-spacing:.16em}
+.ft-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-block:1.5rem;font-size:.8rem;position:relative}
 .ft-bot a{color:#fff}
 
-/* lightbox */
+/* ================================ MOBILE BAR ================================ */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;grid-template-columns:repeat(3,1fr);background:rgba(14,47,44,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.12);padding-bottom:env(safe-area-inset-bottom);transform:translateY(100%);transition:transform .45s var(--out)}
+.mbar.on{transform:none}
+.mbar a{display:grid;justify-items:center;gap:.25rem;padding:.7rem .4rem .75rem;color:#fff;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.mbar a+a{border-left:1px solid rgba(255,255,255,.12)}
+.mbar svg{width:18px;height:18px;stroke:var(--clay-l);fill:none;stroke-width:1.8}
+
+/* ================================ LIGHTBOX ================================ */
 .lb{position:fixed;inset:0;z-index:120;background:rgba(6,22,20,.96);display:grid;place-items:center;padding:clamp(1rem,4vw,3rem);opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s}
 .lb.open{opacity:1;visibility:visible}
-.lb img{max-width:100%;max-height:86vh;object-fit:contain}
-.lb-x{position:absolute;top:1rem;right:1rem;width:48px;height:48px;border:1px solid var(--line-d);background:none;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;border-radius:100px}
+.lb img{max-width:100%;max-height:86vh;width:auto;object-fit:contain;transform:scale(.96);transition:transform .5s var(--out)}
+.lb.open img{transform:none}
+.lb-x{position:absolute;top:1rem;right:1rem;width:48px;height:48px;border:1px solid var(--line-d);color:#fff;font-size:1.5rem;line-height:1;border-radius:100px;transition:background .3s,transform .35s}
+.lb-x:hover{background:rgba(255,255,255,.1);transform:rotate(90deg)}
 .lb-cap{position:absolute;left:0;right:0;bottom:1.1rem;text-align:center;color:#B4C9C5;font-size:.85rem;padding-inline:1rem}
 
-.rv{opacity:0;transform:translateY(26px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.rv.d1{transition-delay:.09s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.27s}.rv.d4{transition-delay:.36s}
-
+/* ================================ RESPONSIVE ================================ */
 @media(max-width:1080px){
   .nav{display:none}.burger{display:grid}
-  .intro,.ct{grid-template-columns:1fr}
-  .stru-row{grid-template-columns:1fr}
-  .stru-row.rev>figure{order:0}
+  .intro,.ct,.stru-row{grid-template-columns:1fr}
+  .intro-side,.stru-row figure{position:relative;top:auto}
+  .stru-row.rev figure{order:0}
   .board{grid-template-columns:1fr}
   .ft-top{grid-template-columns:repeat(2,minmax(0,1fr))}
   .aims{grid-template-columns:1fr}
+  .hero-since{display:none}
 }
 @media(max-width:720px){
   .facts-in{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact:nth-child(3){padding-left:0;border-left:0}
+  .fact:nth-child(3),.fact:nth-child(4){border-top:1px solid var(--line)}
   .prin{grid-template-columns:1fr}
-  .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hero-in{padding-block:7rem 4rem}
-  .hero-cta .btn{width:100%}
+  .gal-row{flex-direction:column;gap:1.4rem}
+  .hero-in{padding-block:7.5rem 4.6rem}
+  .cta-row .btn{width:100%}
   .ft-top{grid-template-columns:1fr}
   .meta .row,.ct-list .row{grid-template-columns:1fr;gap:.2rem}
+  .mbar{display:grid}
+  body{padding-bottom:64px}
+  .scroll-cue{display:none}
 }
-/* mobile header: keep the lockup, the toggle and the burger from colliding */
-@media(max-width:900px){
-  .brand-tx span{display:none}
-}
-@media(max-width:640px){
-  .bn-long{display:none}
-  .bn-short{display:block}
-}
+@media(max-width:900px){.brand-tx span{display:none}}
+@media(max-width:640px){.bn-long{display:none}.bn-short{display:block}}
 @media(max-width:520px){
   .lang button{font-size:0;gap:0;padding:.4rem .5rem}
   .lang button .flag{width:22px;height:15px}
   .brand img{width:40px;height:40px}
   .brand{gap:.55rem}
   .hdr-in{gap:.6rem}
-  .brand-tx b{font-size:.86rem}
+  .brand-tx b{font-size:1rem}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .js .rv,.js .lines .ln>span{opacity:1;transform:none}
+  .js .curtain::after{display:none}
   .hero-media img{animation:none;transform:none}
-  .scroll-cue::after{animation:none}
-  .gal a:hover img{transform:none}
+  .thread{display:none}
 }
+@media print{.hdr,.mnav,.mbar,.lb,.progress,.grain,.scroll-cue,.thread,form.cf{display:none !important}}
 </style>
 </head>
 <body id="top">
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <header class="hdr" id="hdr">
   <div class="hdr-in">
@@ -282,7 +368,7 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
           <span class="flag" aria-hidden="true"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="ukc"><path d="M0 0h60v30H0z"/></clipPath><g clip-path="url(#ukc)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg></span>EN
         </button>
       </div>
-      <button class="burger" id="burger" aria-label="Μενού" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Μενού" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -290,13 +376,13 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
 <div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Μενού">
   <div class="mnav-top"><button class="mclose" id="mclose" aria-label="Κλείσιμο">&#10005;</button></div>
   <nav>
-    <a href="#etaireia" data-i18n="navAbout">Η Εταιρεία</a>
-    <a href="#filosofia" data-i18n="navPhil">Φιλοσοφία</a>
-    <a href="#domes" data-i18n="navStru">Δομές</a>
-    <a href="#skopoi" data-i18n="navAims">Σκοποί</a>
-    <a href="#draseis" data-i18n="navActs">Δράσεις</a>
-    <a href="#ethelontes" data-i18n="navVol">Εθελοντές</a>
-    <a href="#epikoinonia" data-i18n="navContact">Επικοινωνία</a>
+    <a href="#etaireia"><span class="n">01</span><span data-i18n="navAbout">Η Εταιρεία</span></a>
+    <a href="#filosofia"><span class="n">02</span><span data-i18n="navPhil">Φιλοσοφία</span></a>
+    <a href="#domes"><span class="n">03</span><span data-i18n="navStru">Δομές</span></a>
+    <a href="#skopoi"><span class="n">04</span><span data-i18n="navAims">Σκοποί</span></a>
+    <a href="#draseis"><span class="n">05</span><span data-i18n="navActs">Δράσεις</span></a>
+    <a href="#ethelontes"><span class="n">06</span><span data-i18n="navVol">Εθελοντές</span></a>
+    <a href="#epikoinonia"><span class="n">07</span><span data-i18n="navContact">Επικοινωνία</span></a>
   </nav>
   <div class="mnav-foot">
     <a href="tel:+302170008040">217 000 8040</a>
@@ -305,19 +391,24 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
   </div>
 </div>
 
+<main>
 <section class="hero" aria-labelledby="h1">
   <div class="hero-media" aria-hidden="true">
-    <img src="assets/hero.jpg" width="2560" height="1707" fetchpriority="high" decoding="async" alt="">
+    <picture>
+      <source media="(max-width:760px)" srcset="assets/hero-narrow.webp">
+      <img src="assets/hero.webp" width="1800" height="1200" fetchpriority="high" decoding="async" alt="">
+    </picture>
   </div>
   <div class="hero-in">
     <span class="tag rv in" data-i18n="heroTag">Αστική μη κερδοσκοπική εταιρεία</span>
-    <h1 id="h1" class="rv in d1" data-i18n="heroTitle">Ένας μίτος για να βρεθεί ο δρόμος πίσω.</h1>
+    <h1 id="h1" class="lines in" data-i18n="heroTitle"><span class="ln"><span>Ένας <em>μίτος</em> για</span></span><span class="ln"><span>να βρεθεί ο</span></span><span class="ln"><span>δρόμος πίσω.</span></span></h1>
     <p class="lead rv in d2" data-i18n="heroLead">Η ΜΙΤΟΣ σχεδιάζει και λειτουργεί δομές ψυχικής υγείας και κοινωνικές παρεμβάσεις για ανθρώπους που, χωρίς υποστήριξη, θα έμεναν απ' έξω. Από το 2013, με επιστημονική ομάδα και ανοιχτή πόρτα στην κοινότητα.</p>
-    <div class="hero-cta rv in d3">
-      <a class="btn btn-p" href="#domes" data-i18n="ctaStru">Οι δομές μας</a>
-      <a class="btn btn-o" href="#ethelontes" data-i18n="ctaVol">Γίνε εθελοντής</a>
+    <div class="cta-row rv in d3">
+      <a class="btn btn-p" href="#domes"><span data-i18n="ctaStru">Οι δομές μας</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="link" href="#ethelontes" style="color:#fff"><span data-i18n="ctaVol">Γίνε εθελοντής</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
+  <div class="hero-since rv in d4" aria-hidden="true"><b>2013</b><span data-i18n="sinceLbl">Έτος ίδρυσης</span></div>
   <div class="scroll-cue" aria-hidden="true"></div>
 </section>
 
@@ -330,17 +421,20 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
   </div>
 </section>
 
+<div id="threadHost" style="position:relative">
+<svg class="thread" id="thread" aria-hidden="true" viewBox="0 0 100 1000" preserveAspectRatio="none"><path id="threadPath" d="M50 0 C 50 60, 22 90, 40 140 S 60 230, 30 300 C 10 350, 70 380, 45 440 S 25 560, 50 620 C 70 670, 20 720, 40 790 S 60 900, 45 960 L 45 1000"/></svg>
+
 <section class="sec" id="etaireia">
   <div class="wrap intro">
-    <div class="rv">
+    <div class="intro-side rv">
       <span class="eyebrow" data-i18n="abEyebrow">Η Εταιρεία</span>
       <h2 data-i18n="abTitle">Ψυχική υγεία και κοινωνική ένταξη, στην ίδια πρόταση.</h2>
-      <blockquote class="quote" style="margin:2rem 0 0" data-i18n="abQuote">«Δημιουργήθηκε με σκοπό την προαγωγή της σωματικής και ψυχικής υγείας και τη βελτιστοποίηση της κοινωνικής ένταξης.»<small>Από το καταστατικό της ΜΙΤΟΣ ΑΜΚΕ</small></blockquote>
+      <blockquote class="quote" data-i18n="abQuote">«Δημιουργήθηκε με σκοπό την προαγωγή της σωματικής και ψυχικής υγείας και τη βελτιστοποίηση της κοινωνικής ένταξης.»<small>Από το καταστατικό της ΜΙΤΟΣ ΑΜΚΕ</small></blockquote>
     </div>
-    <div class="rv d1">
-      <p class="lead" data-i18n="abP1">Η ΜΙΤΟΣ είναι αστική μη κερδοσκοπική εταιρεία ψυχικής υγείας και κοινωνικών παρεμβάσεων. Παρέχει ιατρική, ψυχολογική, ψυχιατρική και κοινωνική φροντίδα, με έμφαση σε πληθυσμούς που μένουν συστηματικά εκτός: ηλικιωμένους, ανέργους, αστέγους, μετανάστες και πρόσφυγες, ασθενείς με χρόνια νοσήματα, άτομα με αναπηρία, κοινωνικά αποκλεισμένες ομάδες, Ρομά και θύματα κακοποίησης.</p>
-      <p data-i18n="abP2">Δίπλα στην κλινική δουλειά τρέχει η ψυχοεκπαίδευση και η ψυχοθεραπεία — σε άτομα, οικογένειες, κοινωνικές και επαγγελματικές ομάδες. Στόχος δεν είναι μόνο η θεραπεία της διαταραχής, αλλά και η πρόληψή της και η άνοδος της ποιότητας ζωής.</p>
-      <p data-i18n="abP3">Στην εταιρεία συμμετέχουν ψυχίατροι, παιδοψυχίατροι, ψυχολόγοι, νοσηλευτές ψυχικής υγείας, κοινωνικοί λειτουργοί, εργοθεραπευτές, ψυχοθεραπευτές και εκπαιδευτικοί — μια πολυκλαδική ομάδα που δουλεύει με κοινό σχέδιο και κοινή γλώσσα.</p>
+    <div>
+      <p class="lead rv d1" data-i18n="abP1">Η ΜΙΤΟΣ είναι αστική μη κερδοσκοπική εταιρεία ψυχικής υγείας και κοινωνικών παρεμβάσεων. Παρέχει ιατρική, ψυχολογική, ψυχιατρική και κοινωνική φροντίδα, με έμφαση σε πληθυσμούς που μένουν συστηματικά εκτός: ηλικιωμένους, ανέργους, αστέγους, μετανάστες και πρόσφυγες, ασθενείς με χρόνια νοσήματα, άτομα με αναπηρία, κοινωνικά αποκλεισμένες ομάδες, Ρομά και θύματα κακοποίησης.</p>
+      <p class="rv d2" style="margin-top:1.4rem" data-i18n="abP2">Δίπλα στην κλινική δουλειά τρέχει η ψυχοεκπαίδευση και η ψυχοθεραπεία — σε άτομα, οικογένειες, κοινωνικές και επαγγελματικές ομάδες. Στόχος δεν είναι μόνο η θεραπεία της διαταραχής, αλλά και η πρόληψή της και η άνοδος της ποιότητας ζωής.</p>
+      <p class="rv d2" data-i18n="abP3">Στην εταιρεία συμμετέχουν ψυχίατροι, παιδοψυχίατροι, ψυχολόγοι, νοσηλευτές ψυχικής υγείας, κοινωνικοί λειτουργοί, εργοθεραπευτές, ψυχοθεραπευτές και εκπαιδευτικοί — μια πολυκλαδική ομάδα που δουλεύει με κοινό σχέδιο και κοινή γλώσσα.</p>
     </div>
   </div>
 </section>
@@ -368,14 +462,17 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
       <p class="lead rv d2" style="margin-top:1.3rem" data-i18n="stLead">Οι δομές μας δεν είναι κλινικές. Είναι χώροι ζωής, ανοιχτοί στην κοινωνία, όπου η θεραπευτική δουλειά γίνεται μέσα από τη ρουτίνα, το σχολείο, το παιχνίδι και τη σχέση.</p>
     </div>
     <div class="stru">
-      <article class="stru-row rv">
-        <figure><img src="assets/xenonas.jpg" width="2048" height="1536" loading="lazy" alt="Δραστηριότητα δημιουργικού εργαστηρίου στον Ξενώνα Εφήβων Πειραιά" data-lb data-cap="Ξενώνας Εφήβων Πειραιά — δημιουργικό εργαστήριο"></figure>
-        <div class="stru-tx">
-          <span class="badge" data-i18n="stB1">Σε λειτουργία από τον Σεπτέμβριο 2023</span>
-          <h3 data-i18n="st1t">Ξενώνας Εφήβων Πειραιά</h3>
-          <p style="margin-top:.9rem" data-i18n="st1d">Μονάδα ψυχικής υγείας που λειτουργεί ως ενδιάμεση δομή στη διαδικασία μετάβασης στην κοινότητα. Φιλοξενεί αγόρια 13 έως 18 ετών με σοβαρά ψυχοκοινωνικά προβλήματα ή ψυχικές διαταραχές, με βαριά διαταραγμένο οικογενειακό περιβάλλον ή με παραβατική συμπεριφορά και αυξημένο κίνδυνο για αυτήν.</p>
-          <p data-i18n="st1d2">Λειτουργεί σαν οικογενειακό περιβάλλον, ανοιχτό στην κοινωνία, με υψηλού βαθμού 24ωρη φροντίδα. Δεν αποτελεί σε καμία περίπτωση κλινική ή νοσοκομείο και δεν παρέχεται νοσηλεία.</p>
-          <ul class="ticks">
+      <article class="stru-row">
+        <figure>
+          <span class="curtain rv"><img src="assets/xenonas.jpg" width="1125" height="1166" loading="lazy" decoding="async" alt="Δραστηριότητα δημιουργικού εργαστηρίου στον Ξενώνα Εφήβων Πειραιά" data-lb data-cap="Ξενώνας Εφήβων Πειραιά — δημιουργικό εργαστήριο"></span>
+          <figcaption class="rv d1" data-i18n="st1cap">Ξενώνας Εφήβων Πειραιά — δημιουργικό εργαστήριο</figcaption>
+        </figure>
+        <div>
+          <span class="badge rv" data-i18n="stB1">Σε λειτουργία από τον Σεπτέμβριο 2023</span>
+          <h3 class="rv" data-i18n="st1t">Ξενώνας Εφήβων Πειραιά</h3>
+          <p class="rv d1" style="margin-top:1rem" data-i18n="st1d">Μονάδα ψυχικής υγείας που λειτουργεί ως ενδιάμεση δομή στη διαδικασία μετάβασης στην κοινότητα. Φιλοξενεί αγόρια 13 έως 18 ετών με σοβαρά ψυχοκοινωνικά προβλήματα ή ψυχικές διαταραχές, με βαριά διαταραγμένο οικογενειακό περιβάλλον ή με παραβατική συμπεριφορά και αυξημένο κίνδυνο για αυτήν.</p>
+          <p class="rv d1" data-i18n="st1d2">Λειτουργεί σαν οικογενειακό περιβάλλον, ανοιχτό στην κοινωνία, με υψηλού βαθμού 24ωρη φροντίδα. Δεν αποτελεί σε καμία περίπτωση κλινική ή νοσοκομείο και δεν παρέχεται νοσηλεία.</p>
+          <ul class="ticks rv d2">
             <li data-i18n="st1l1">Ατομική ψυχολογική συμβουλευτική και ψυχιατρική παρακολούθηση</li>
             <li data-i18n="st1l2">Ομαδικά προγράμματα κοινωνικοποίησης και μαθησιακή υποστήριξη</li>
             <li data-i18n="st1l3">Εκπαίδευση σε δεξιότητες αυτόνομης διαβίωσης και κοινωνικές δεξιότητες</li>
@@ -384,26 +481,29 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
             <li data-i18n="st1l6">Πρόληψη χρήσης ουσιών και προγράμματα διαχείρισης συναισθήματος</li>
             <li data-i18n="st1l7">Υποστήριξη του οικογενειακού περιβάλλοντος και συνεργασία με το σχολείο</li>
           </ul>
-          <div class="meta">
+          <div class="meta rv d2">
             <div class="row"><b data-i18n="lblAddr">Διεύθυνση</b><span data-i18n="st1addr">Ερμουπόλεως 44, Πειραιάς</span></div>
             <div class="row"><b data-i18n="lblTeam">Ομάδα</b><span data-i18n="st1team">Ψυχολόγοι, παιδοψυχίατροι, νοσηλευτές, εκπαιδευτικοί και φροντιστές κοινωνικής μέριμνας</span></div>
             <div class="row"><b data-i18n="lblFund">Χρηματοδότηση</b><span data-i18n="st1fund">Ταμείο Ανάκαμψης και Ανθεκτικότητας, υπό την εποπτεία του Υπουργείου Υγείας — πρόγραμμα «Δημιουργία νέων Στεγαστικών Μονάδων Ψυχικής Υγείας»</span></div>
           </div>
         </div>
       </article>
-      <article class="stru-row rev rv">
-        <figure><img src="assets/enargeia.jpg" width="2560" height="1707" loading="lazy" alt="Εκπαιδευτικό υλικό και βιβλία σε χώρο της ΜΙΤΟΣ" data-lb data-cap="Κέντρο Ημέρας Ολικής Φροντίδας «Εναργεία»"></figure>
-        <div class="stru-tx">
-          <span class="badge" data-i18n="stB2">Κέντρο Ημέρας</span>
-          <h3 data-i18n="st2t">Κέντρο Ημέρας Ολικής Φροντίδας «Εναργεία»</h3>
-          <p style="margin-top:.9rem" data-i18n="st2d">Η δεύτερη δομή της ΜΙΤΟΣ, σχεδιασμένη για ολοκληρωμένη φροντίδα σε καθημερινή βάση, χωρίς διανυκτέρευση. Απευθύνεται σε ανθρώπους που χρειάζονται συστηματική ψυχιατρική και ψυχοκοινωνική υποστήριξη, παραμένοντας ταυτόχρονα στο σπίτι και στο περιβάλλον τους.</p>
-          <ul class="ticks">
+      <article class="stru-row rev">
+        <figure>
+          <span class="curtain rv"><img src="assets/enargeia.jpg" width="1500" height="1000" loading="lazy" decoding="async" alt="Εκπαιδευτικό υλικό και βιβλία σε χώρο της ΜΙΤΟΣ" data-lb data-cap="Κέντρο Ημέρας Ολικής Φροντίδας «Εναργεία»"></span>
+          <figcaption class="rv d1" data-i18n="st2cap">Κέντρο Ημέρας «Εναργεία»</figcaption>
+        </figure>
+        <div>
+          <span class="badge rv" data-i18n="stB2">Κέντρο Ημέρας</span>
+          <h3 class="rv" data-i18n="st2t">Κέντρο Ημέρας Ολικής Φροντίδας «Εναργεία»</h3>
+          <p class="rv d1" style="margin-top:1rem" data-i18n="st2d">Η δεύτερη δομή της ΜΙΤΟΣ, σχεδιασμένη για ολοκληρωμένη φροντίδα σε καθημερινή βάση, χωρίς διανυκτέρευση. Απευθύνεται σε ανθρώπους που χρειάζονται συστηματική ψυχιατρική και ψυχοκοινωνική υποστήριξη, παραμένοντας ταυτόχρονα στο σπίτι και στο περιβάλλον τους.</p>
+          <ul class="ticks rv d2">
             <li data-i18n="st2l1">Ψυχιατρική παρακολούθηση και ατομική ψυχοθεραπεία</li>
             <li data-i18n="st2l2">Ομάδες ψυχοεκπαίδευσης για τους ίδιους και τις οικογένειές τους</li>
             <li data-i18n="st2l3">Δημιουργική απασχόληση, εργοθεραπεία και κοινωνικές δεξιότητες</li>
             <li data-i18n="st2l4">Σύνδεση με υπηρεσίες υγείας, πρόνοιας και απασχόλησης</li>
           </ul>
-          <div class="meta">
+          <div class="meta rv d2">
             <div class="row"><b data-i18n="lblInfo">Πληροφορίες</b><span><a href="tel:+302170008040">217 000 8040</a> · <a href="mailto:info@mitosinstitute.gr">info@mitosinstitute.gr</a></span></div>
           </div>
         </div>
@@ -445,12 +545,16 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
       <p class="lead rv d2" style="margin-top:1.3rem" data-i18n="acLead">Εκδρομές, αθλητισμός, εργαστήρια, γιορτές, εκπαιδεύσεις πρώτων βοηθειών και επισκέψεις σε πολιτιστικούς χώρους: κάθε δράση είναι μέρος του θεραπευτικού σχεδίου, όχι διάλειμμα από αυτό.</p>
     </div>
     <div class="gal">
-      <a href="#" data-lb-a class="rv"><figure style="margin:0"><img src="assets/act-1.jpg" loading="lazy" alt="Καλοκαιρινή εκδρομή σε πάρκο νερού" data-lb data-cap="Καλοκαιρινή εκδρομή"><figcaption data-i18n="g1">Καλοκαιρινές εξορμήσεις</figcaption></figure></a>
-      <a href="#" data-lb-a class="rv d1"><figure style="margin:0"><img src="assets/act-2.jpg" loading="lazy" alt="Γήπεδο padel σε αθλητική δράση" data-lb data-cap="Αθλητικές δράσεις"><figcaption data-i18n="g2">Αθλητισμός</figcaption></figure></a>
-      <a href="#" data-lb-a class="rv d2"><figure style="margin:0"><img src="assets/act-3.jpg" loading="lazy" alt="Επίσκεψη σε πολιτιστικό χώρο" data-lb data-cap="Πολιτιστικές επισκέψεις"><figcaption data-i18n="g3">Πολιτιστικές επισκέψεις</figcaption></figure></a>
-      <a href="#" data-lb-a class="rv"><figure style="margin:0"><img src="assets/act-4.jpg" loading="lazy" alt="Χειροποίητες πασχαλινές λαμπάδες" data-lb data-cap="Πάσχα στη δομή"><figcaption data-i18n="g4">Γιορτές</figcaption></figure></a>
-      <a href="#" data-lb-a class="rv d1"><figure style="margin:0"><img src="assets/act-5.jpg" loading="lazy" alt="Δημιουργικό εργαστήριο με χειροτεχνίες" data-lb data-cap="Δημιουργικό εργαστήριο"><figcaption data-i18n="g5">Δημιουργικά εργαστήρια</figcaption></figure></a>
-      <a href="#" data-lb-a class="rv d2"><figure style="margin:0"><img src="assets/act-6.jpg" loading="lazy" alt="Εκπαίδευση στην καρδιοαναπνευστική αναζωογόνηση" data-lb data-cap="Εκπαίδευση πρώτων βοηθειών"><figcaption data-i18n="g6">Πρώτες βοήθειες</figcaption></figure></a>
+      <div class="gal-row">
+        <a href="#" data-lb-a class="rv" style="flex-grow:0.75"><figure><span class="ph"><img src="assets/act-1.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Καλοκαιρινή εκδρομή σε πάρκο νερού" data-lb data-cap="Καλοκαιρινή εκδρομή"></span><figcaption data-i18n="g1">Καλοκαιρινές εξορμήσεις</figcaption></figure></a>
+        <a href="#" data-lb-a class="rv d1" style="flex-grow:0.75"><figure><span class="ph"><img src="assets/act-2.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Γήπεδο padel σε αθλητική δράση" data-lb data-cap="Αθλητικές δράσεις"></span><figcaption data-i18n="g2">Αθλητισμός</figcaption></figure></a>
+        <a href="#" data-lb-a class="rv d2" style="flex-grow:0.75"><figure><span class="ph"><img src="assets/act-3.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Επίσκεψη σε πολιτιστικό χώρο" data-lb data-cap="Πολιτιστικές επισκέψεις"></span><figcaption data-i18n="g3">Πολιτιστικές επισκέψεις</figcaption></figure></a>
+      </div>
+      <div class="gal-row">
+        <a href="#" data-lb-a class="rv" style="flex-grow:0.773"><figure><span class="ph"><img src="assets/act-4.jpg" width="900" height="1165" loading="lazy" decoding="async" alt="Χειροποίητες πασχαλινές λαμπάδες" data-lb data-cap="Πάσχα στη δομή"></span><figcaption data-i18n="g4">Γιορτές</figcaption></figure></a>
+        <a href="#" data-lb-a class="rv d1" style="flex-grow:1.36"><figure><span class="ph"><img src="assets/act-5.jpg" width="900" height="662" loading="lazy" decoding="async" alt="Δημιουργικό εργαστήριο με χειροτεχνίες" data-lb data-cap="Δημιουργικό εργαστήριο"></span><figcaption data-i18n="g5">Δημιουργικά εργαστήρια</figcaption></figure></a>
+        <a href="#" data-lb-a class="rv d2" style="flex-grow:1.004"><figure><span class="ph"><img src="assets/act-6.jpg" width="900" height="896" loading="lazy" decoding="async" alt="Εκπαίδευση στην καρδιοαναπνευστική αναζωογόνηση" data-lb data-cap="Εκπαίδευση πρώτων βοηθειών"></span><figcaption data-i18n="g6">Πρώτες βοήθειες</figcaption></figure></a>
+      </div>
     </div>
   </div>
 </section>
@@ -462,9 +566,9 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
       <h2 class="rv d1" data-i18n="bdTitle">Ποιοι υπογράφουν τις αποφάσεις.</h2>
     </div>
     <div class="board">
-      <article class="rv"><span class="mono" aria-hidden="true">ΓΚ</span><h3 data-i18n="b1n">Γεώργιος Καραμπουτάκης</h3><span data-i18n="b1r">Πρόεδρος</span><p style="font-size:.93rem;margin-top:.5rem" data-i18n="b1d">Ψυχίατρος, MD, MSc, PhD. Πρόεδρος και της Ελληνοαμερικανικής Ψυχιατρικής Εταιρείας.</p></article>
-      <article class="rv d1"><span class="mono" aria-hidden="true">ΓΠ</span><h3 data-i18n="b2n">Γεώργιος Παπαδήμας</h3><span data-i18n="b2r">Διευθύνων Σύμβουλος</span><p style="font-size:.93rem;margin-top:.5rem" data-i18n="b2d">Συντονισμός της λειτουργίας των δομών και της υλοποίησης των προγραμμάτων.</p></article>
-      <article class="rv d2"><span class="mono" aria-hidden="true">ΝΧ</span><h3 data-i18n="b3n">Νίκος Χαλαράκης</h3><span data-i18n="b3r">Γενικός Γραμματέας</span><p style="font-size:.93rem;margin-top:.5rem" data-i18n="b3d">Γραμματειακή και διοικητική υποστήριξη του Διοικητικού Συμβουλίου.</p></article>
+      <article class="rv"><span class="mono" aria-hidden="true">ΓΚ</span><h3 data-i18n="b1n">Γεώργιος Καραμπουτάκης</h3><span data-i18n="b1r">Πρόεδρος</span><p data-i18n="b1d">Ψυχίατρος, MD, MSc, PhD. Πρόεδρος και της Ελληνοαμερικανικής Ψυχιατρικής Εταιρείας.</p></article>
+      <article class="rv d1"><span class="mono" aria-hidden="true">ΓΠ</span><h3 data-i18n="b2n">Γεώργιος Παπαδήμας</h3><span data-i18n="b2r">Διευθύνων Σύμβουλος</span><p data-i18n="b2d">Συντονισμός της λειτουργίας των δομών και της υλοποίησης των προγραμμάτων.</p></article>
+      <article class="rv d2"><span class="mono" aria-hidden="true">ΝΧ</span><h3 data-i18n="b3n">Νίκος Χαλαράκης</h3><span data-i18n="b3r">Γενικός Γραμματέας</span><p data-i18n="b3d">Γραμματειακή και διοικητική υποστήριξη του Διοικητικού Συμβουλίου.</p></article>
     </div>
   </div>
 </section>
@@ -472,11 +576,11 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
 <section class="on-dark cta" id="ethelontes">
   <div class="wrap">
     <span class="eyebrow rv" data-i18n="voEyebrow">Εθελοντισμός</span>
-    <h2 class="rv d1" data-i18n="voTitle">Ο εθελοντισμός είναι προσφορά χωρίς υλική ανταμοιβή — και έχει τεράστια αξία.</h2>
+    <h2 class="rv d1" data-i18n="voTitle">Ο εθελοντισμός είναι προσφορά χωρίς υλική ανταμοιβή — και έχει <em>τεράστια</em> αξία.</h2>
     <p class="rv d2" data-i18n="voLead">Αν θέλετε να προσφέρετε σε εφήβους που το έχουν ανάγκη, σέβεστε τη διαφορετικότητα και μπορείτε να δουλέψετε μέσα σε ομάδα, υπάρχει θέση για εσάς. Οι εθελοντές μας βοηθούν να χτιστεί ένα ασφαλές περιβάλλον, ενισχύουν δεξιότητες και παίρνουν πίσω εμπειρία και γνώση.</p>
-    <div class="hero-cta rv d3">
-      <a class="btn btn-p" href="mailto:info@mitosinstitute.gr?subject=Δήλωση%20εθελοντή" data-i18n="voCta">Δηλώστε συμμετοχή</a>
-      <a class="btn btn-o" href="#epikoinonia" data-i18n="voCta2">Ρωτήστε μας πρώτα</a>
+    <div class="cta-row rv d3">
+      <a class="btn btn-p" href="mailto:info@mitosinstitute.gr?subject=Δήλωση%20εθελοντή"><span data-i18n="voCta">Δηλώστε συμμετοχή</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn-o" href="#epikoinonia"><span data-i18n="voCta2">Ρωτήστε μας πρώτα</span></a>
     </div>
   </div>
 </section>
@@ -487,7 +591,7 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
       <span class="eyebrow" data-i18n="ctEyebrow">Επικοινωνία</span>
       <h2 data-i18n="ctTitle">Για κάθε πληροφορία ή ερώτηση.</h2>
       <p class="lead" style="margin-top:1.3rem" data-i18n="ctLead">Γράψτε μας ή τηλεφωνήστε — για παραπομπή, για συνεργασία, για εθελοντισμό ή για δωρεά.</p>
-      <div class="ct-list" style="margin-top:2rem">
+      <div class="ct-list">
         <div class="row"><b data-i18n="lblOffice">Γραφεία</b><span data-i18n="ctAddr">Δημητρίου Σούτσου 13, Αθήνα 115 21</span></div>
         <div class="row"><b data-i18n="lblStru">Ξενώνας</b><span data-i18n="st1addr">Ερμουπόλεως 44, Πειραιάς</span></div>
         <div class="row"><b data-i18n="lblPhone">Τηλέφωνα</b><span><a href="tel:+302170008040">217 000 8040</a><br><a href="tel:+302104826111">210 482 6111</a><br><a href="tel:+306970301443">697 030 1443</a></span></div>
@@ -495,24 +599,26 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
         <div class="row"><b data-i18n="lblSocial">Κοινωνικά</b><span><a href="https://www.facebook.com/mitosinstitute" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.linkedin.com/company/mitos-civil-society-for-mental-health-social-interventions/" target="_blank" rel="noopener">LinkedIn</a></span></div>
       </div>
     </div>
-    <form class="rv d1" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="cf rv d1" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact">
       <p class="hp"><label>Μην συμπληρώσετε: <input name="bot-field"></label></p>
       <div class="field"><label for="n" data-i18n="fName">Ονοματεπώνυμο</label><input id="n" name="name" type="text" required autocomplete="name"></div>
       <div class="field"><label for="e" data-i18n="fEmail">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
       <div class="field"><label for="t" data-i18n="fPhone">Τηλέφωνο</label><input id="t" name="phone" type="tel" autocomplete="tel"></div>
       <div class="field"><label for="m" data-i18n="fMsg">Το μήνυμά σας</label><textarea id="m" name="message" required></textarea></div>
-      <button class="btn btn-p" type="submit" data-i18n="fSend">Αποστολή</button>
+      <button class="btn btn-p" type="submit" style="width:100%"><span data-i18n="fSend">Αποστολή</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <p class="note" data-i18n="fNote">Τα στοιχεία σας χρησιμοποιούνται αποκλειστικά για να απαντηθεί το αίτημά σας.</p>
     </form>
   </div>
 </section>
+</div><!-- /threadHost -->
+</main>
 
 <footer class="ft">
   <div class="wrap">
     <div class="ft-top">
       <div>
-        <a class="ft-brand" href="#top">
+        <a class="ft-brand" href="#top" aria-label="Αρχική">
           <img src="assets/logo.jpg" width="48" height="48" alt="Λογότυπο ΜΙΤΟΣ">
           <b data-i18n="brand">ΜΙΤΟΣ</b>
         </a>
@@ -553,20 +659,30 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
   </div>
 </footer>
 
+<nav class="mbar" id="mbar" aria-label="Γρήγορες ενέργειες">
+  <a href="tel:+302170008040"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke-linejoin="round"/></svg><span data-i18n="mbCall">Κλήση</span></a>
+  <a href="#epikoinonia"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 7 8.4 6 8.4-6" stroke-linejoin="round"/></svg><span data-i18n="mbMail">Μήνυμα</span></a>
+  <a href="#ethelontes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" stroke-linejoin="round"/></svg><span data-i18n="mbVol">Εθελοντές</span></a>
+</nav>
+
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Προβολή εικόνας">
   <button class="lb-x" id="lbx" aria-label="Κλείσιμο">&#10005;</button>
   <img id="lbimg" src="" alt="">
   <div class="lb-cap" id="lbcap"></div>
 </div>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"ΜΙΤΟΣ ΑΜΚΕ","alternateName":"MITOS — Society for Mental Health & Social Interventions","foundingDate":"2013","email":"info@mitosinstitute.gr","telephone":"+302170008040","url":"https://mitosinstitute.gr","address":{"@type":"PostalAddress","streetAddress":"Δημητρίου Σούτσου 13","addressLocality":"Αθήνα","postalCode":"115 21","addressCountry":"GR"}}
+</script>
+
 <script>
 window.EN={
  brand:"MITOS", brandShort:"MITOS", brandSub:"Society for Mental Health &amp; Social Interventions",
  navAbout:"The Society", navPhil:"Philosophy", navStru:"Facilities", navAims:"Our Aims", navActs:"Activities", navVol:"Volunteers", navContact:"Contact",
  heroTag:"A non-profit civil society organisation",
- heroTitle:"A thread by which the way back is found.",
+ heroTitle:"<span class=\"ln\"><span>A <em>thread</em> by which</span></span><span class=\"ln\"><span>the way back</span></span><span class=\"ln\"><span>is found.</span></span>",
  heroLead:"MITOS designs and runs mental health facilities and social interventions for people who, without support, would be left outside. Since 2013, with a scientific team and an open door to the community.",
- ctaStru:"Our facilities", ctaVol:"Become a volunteer",
+ ctaStru:"Our facilities", ctaVol:"Become a volunteer", sinceLbl:"Founded",
  f1:"The year the society was founded", f2:"Ages hosted at the Piraeus Adolescent Hostel",
  f3:"Places at the facility", f4:"Care from a multidisciplinary therapeutic team",
  abEyebrow:"The Society", abTitle:"Mental health and social inclusion, in the same sentence.",
@@ -582,6 +698,7 @@ window.EN={
  stEyebrow:"Mental health facilities", stTitle:"Where care becomes everyday life.",
  stLead:"Our facilities are not clinics. They are places to live in, open to society, where the therapeutic work happens through routine, school, play and relationship.",
  stB1:"Operating since September 2023", stB2:"Day centre",
+ st1cap:"Piraeus Adolescent Hostel — creative workshop", st2cap:"“Enargeia” Day Centre",
  st1t:"Piraeus Adolescent Hostel",
  st1d:"A mental health unit operating as an intermediate structure in the transition to community living. It hosts boys aged 13 to 18 with serious psychosocial problems or mental disorders, from severely disrupted family environments, or with delinquent behaviour and a heightened risk of it.",
  st1d2:"It works as a family environment, open to society, with a high standard of round-the-clock care. It is in no sense a clinic or a hospital and no inpatient treatment is provided.",
@@ -623,7 +740,7 @@ window.EN={
  b1n:"Georgios Karampoutakis", b1r:"President", b1d:"Psychiatrist, MD, MSc, PhD. Also President of the Hellenic American Psychiatric Association.",
  b2n:"Georgios Papadimas", b2r:"Managing Director", b2d:"Coordination of the facilities and the delivery of the programmes.",
  b3n:"Nikos Chalarakis", b3r:"General Secretary", b3d:"Secretarial and administrative support to the Board of Directors.",
- voEyebrow:"Volunteering", voTitle:"Volunteering is work offered without material reward — and its value is enormous.",
+ voEyebrow:"Volunteering", voTitle:"Volunteering is work offered without material reward — and its value is <em>enormous</em>.",
  voLead:"If you want to give something to adolescents who need it, respect difference, and can work within a team, there is a place for you. Our volunteers help build a safe environment, strengthen skills, and take back experience and knowledge of their own.",
  voCta:"Register your interest", voCta2:"Ask us first",
  ctEyebrow:"Contact", ctTitle:"For any information or question.",
@@ -635,10 +752,11 @@ window.EN={
  fNote:"Your details are used solely to answer your enquiry.",
  ftAbout:"A non-profit civil society organisation for mental health and social interventions. Facilities, research, training and volunteering since 2013.",
  ftNav:"Navigation", ftWhere:"Where we are", ftContact:"Contact",
- ftRights:"© <span id=\"yr\"></span> MITOS. All rights reserved."
+ ftRights:"© <span id=\"yr\"></span> MITOS. All rights reserved.",
+ mbCall:"Call", mbMail:"Message", mbVol:"Volunteer"
 };
 (function(){
-  var d=document, EL={}, reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var d=document, EL={};
   d.querySelectorAll('[data-i18n]').forEach(function(el){ var k=el.getAttribute('data-i18n'); if(!(k in EL)) EL[k]=el.innerHTML; });
   var META={el:{title:"ΜΙΤΟΣ — Εταιρεία Ψυχικής Υγείας & Κοινωνικών Παρεμβάσεων"},en:{title:"MITOS — Society for Mental Health & Social Interventions"}};
   function apply(l){
@@ -648,34 +766,85 @@ window.EN={
       if(v!==undefined) el.innerHTML=v;
     });
     d.documentElement.lang=l; d.title=META[l].title;
-    var y=d.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+    d.querySelectorAll('#yr').forEach(function(y){ y.textContent=new Date().getFullYear(); });
     d.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang===l)); });
     try{ localStorage.setItem('mitos-lang', l); }catch(e){}
   }
   d.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.lang); }); });
-  d.getElementById('yr').textContent=new Date().getFullYear();
+  d.querySelectorAll('#yr').forEach(function(y){ y.textContent=new Date().getFullYear(); });
   try{ if(localStorage.getItem('mitos-lang')==='en') apply('en'); }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  var d=document, reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var hdr=d.getElementById('hdr');
-  function onScroll(){ hdr.classList.toggle('stuck', window.scrollY>60); }
-  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+  var hdr=d.getElementById('hdr'), prog=d.getElementById('progress'), mbar=d.getElementById('mbar'), lastY=0;
+  function onScroll(){
+    var y=window.scrollY||0;
+    hdr.classList.toggle('stuck', y>40);
+    hdr.classList.toggle('hide', y>700 && y>lastY+6);
+    lastY=y;
+    var h=d.documentElement.scrollHeight-innerHeight;
+    prog.style.width=(h>0? y/h*100:0)+'%';
+    mbar.classList.toggle('on', y>innerHeight*0.6);
+    drawThread();
+  }
+  addEventListener('scroll', onScroll, {passive:true});
 
-  var mnav=d.getElementById('mnav');
-  function setNav(o){ mnav.classList.toggle('open',o); d.body.style.overflow=o?'hidden':''; d.getElementById('burger').setAttribute('aria-expanded',o); }
-  d.getElementById('burger').addEventListener('click',function(){setNav(true)});
+  var secs=[].slice.call(d.querySelectorAll('main section[id]')), links=[].slice.call(d.querySelectorAll('.nav a'));
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return; links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id); }); }); },{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){ spy.observe(s); });
+  }
+
+  var mnav=d.getElementById('mnav'), burger=d.getElementById('burger');
+  function setNav(o){ mnav.classList.toggle('open',o); d.body.style.overflow=o?'hidden':''; burger.setAttribute('aria-expanded',String(o)); }
+  burger.addEventListener('click',function(){setNav(true)});
   d.getElementById('mclose').addEventListener('click',function(){setNav(false)});
   mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setNav(false)})});
 
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} })},{rootMargin:'0px 0px -8% 0px',threshold:.08});
-  d.querySelectorAll('.rv').forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+  /* hero intro once */
+  if(!reduced){
+    var heroEls=[].slice.call(d.querySelectorAll('.hero .in'));
+    heroEls.forEach(function(el){ el.classList.remove('in'); });
+    void d.body.offsetWidth;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ heroEls.forEach(function(el){ el.classList.add('in'); }); }); });
+  }
+
+  var io=null;
+  if('IntersectionObserver' in window && !reduced){
+    io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} })},{rootMargin:'0px 0px -8% 0px',threshold:.04});
+  }
+  d.querySelectorAll('.rv,.lines,.eyebrow,.fact,.aim,.curtain').forEach(function(el){ if(el.classList.contains('in')) return; if(io) io.observe(el); else el.classList.add('in'); });
 
   var hi=d.querySelector('.hero-media img');
   if(hi && !reduced){ var t=false;
-    addEventListener('scroll',function(){ if(t)return; t=true; requestAnimationFrame(function(){ var y=window.scrollY; if(y<window.innerHeight) hi.style.transform='translate3d(0,'+(y*0.16).toFixed(1)+'px,0)'; t=false; }); },{passive:true}); }
+    addEventListener('scroll',function(){ if(t)return; t=true; requestAnimationFrame(function(){ var y=window.scrollY; if(y<innerHeight) hi.style.setProperty('translate','0 '+(y*0.14).toFixed(1)+'px'); t=false; }); },{passive:true}); }
+
+  /* the thread — drawn by scroll progress through the host block */
+  var host=d.getElementById('threadHost'), path=d.getElementById('threadPath'), len=0, tick=false;
+  function setupThread(){
+    if(!path || reduced) return;
+    try{ len=path.getTotalLength(); }catch(e){ len=0; }
+    if(!len) return;
+    path.style.strokeDasharray=len+' '+len; path.style.strokeDashoffset=len;
+  }
+  function drawThread(){
+    if(!len || tick) return; tick=true;
+    requestAnimationFrame(function(){
+      var r=host.getBoundingClientRect(), vh=innerHeight;
+      var p=(vh*0.72 - r.top)/(r.height); p=Math.max(0,Math.min(1,p));
+      path.style.strokeDashoffset=(len*(1-p)).toFixed(1);
+      tick=false;
+    });
+  }
+  setupThread(); onScroll();
+  addEventListener('resize', function(){ setupThread(); drawThread(); });
 
   var lb=d.getElementById('lb'), lbimg=d.getElementById('lbimg'), lbcap=d.getElementById('lbcap');
-  function open(src,alt,cap){ lbimg.src=src; lbimg.alt=alt||''; lbcap.textContent=cap||''; lb.classList.add('open'); d.body.style.overflow='hidden'; }
-  function close(){ lb.classList.remove('open'); d.body.style.overflow=''; setTimeout(function(){lbimg.src=''},350); }
+  function open(src,alt,cap){ lbimg.src=src; lbimg.alt=alt||''; lbcap.textContent=cap||''; lb.classList.add('open'); d.body.style.overflow='hidden'; d.getElementById('lbx').focus(); }
+  function close(){ lb.classList.remove('open'); d.body.style.overflow=''; setTimeout(function(){lbimg.removeAttribute('src')},350); }
   d.addEventListener('click',function(e){
     var a=e.target.closest('[data-lb-a]'); if(a) e.preventDefault();
     var im=e.target.closest('img[data-lb]');
