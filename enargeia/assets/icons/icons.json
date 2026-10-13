@@ -1,0 +1,16 @@
+{
+ "source": {
+  "kind": "file",
+  "ref": "assets/img/enargeia-logo.svg"
+ },
+ "source_md5": "31ae386fd250b75451b97040908a8fa2",
+ "version": "1aca55d7",
+ "tile": "#F8F4EF",
+ "crop": "0,0,0.198,1",
+ "header": [
+  "inline",
+  "index.html",
+  "db424aa3786b79eff96fc2cf1b1ab8a4"
+ ],
+ "made": "2026-10-13"
+}
